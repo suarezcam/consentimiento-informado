@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Consentimientos Informados · Ética Psicológica</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   VARIABLES Y RESET
+═══════════════════════════════════════════ */
+:root {
+  --verde:       #273C2C;
+  --gris-o:      #626868;
+  --gris-m:      #939196;
+  --lila:        #D3C1D2;
+  --rosa:        #FFE2FE;
+  --blanco:      #FDFAF9;
+  --fondo:       #F6F2F5;
+  --texto:       #1C1C1C;
+  --texto-suave: #5a5858;
+
+  /* por tipo */
+  --c-clinica:       #273C2C;
+  --c-clinica-bg:    #edf3ef;
+  --c-clinica-borde: #5a8a6a;
+
+  --c-psico:         #3d2e3c;
+  --c-psico-bg:      #f3eef3;
+  --c-psico-borde:   #9a7099;
+
+  --c-inv:           #4a3520;
+  --c-inv-bg:        #f5efe8;
+  --c-inv-borde:     #a07845;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+header {
+  background: var(--verde);
+  color: var(--blanco);
+  padding: 2.8rem 3rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(211,193,210,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 30%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(255,226,254,0.10) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.header-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lila);
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--blanco);
+  position: relative;
+  max-width: 520px;
+}
+
+header h1 em {
+  font-style: italic;
+  color: var(--rosa);
+}
+
+.header-sub {
+  margin-top: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.72);
+  max-width: 480px;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════
+   SELECTOR DE TIPO
+═══════════════════════════════════════════ */
+.selector-wrap {
+  background: var(--verde);
+  padding: 0 3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.selector-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.selector-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.6rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  border-bottom: 3px solid transparent;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-btn:hover { color: rgba(255,255,255,0.85); }
+
+.tab-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.tab-btn.active-clinica {
+  color: #a8d8b8;
+  border-bottom-color: #a8d8b8;
+}
+.tab-btn.active-clinica .tab-dot { opacity: 1; background: #a8d8b8; }
+
+.tab-btn.active-psico {
+  color: var(--rosa);
+  border-bottom-color: var(--rosa);
+}
+.tab-btn.active-psico .tab-dot { opacity: 1; background: var(--rosa); }
+
+.tab-btn.active-inv {
+  color: #f0c882;
+  border-bottom-color: #f0c882;
+}
+.tab-btn.active-inv .tab-dot { opacity: 1; background: #f0c882; }
+
+/* ═══════════════════════════════════════════
+   MAIN
+═══════════════════════════════════════════ */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+}
+
+/* ═══════════════════════════════════════════
+   ESTADO VACÍO
+═══════════════════════════════════════════ */
+#empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  animation: fadeUp 0.4s ease;
+}
+
+.empty-icon {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.3;
+}
+
+#empty-state h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gris-o);
+  margin-bottom: 0.5rem;
+}
+
+#empty-state p {
+  font-size: 0.88rem;
+  color: var(--gris-m);
+  max-width: 320px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   PANEL INTRO
+═══════════════════════════════════════════ */
+.intro-card {
+  display: none;
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 1.4rem;
+  gap: 1.2rem;
+  align-items: flex-start;
+  animation: fadeUp 0.35s ease;
+  border: 1px solid transparent;
+}
+.intro-card.visible { display: flex; }
+
+.intro-card.clinica {
+  background: var(--c-clinica-bg);
+  border-color: rgba(90,138,106,0.3);
+}
+.intro-card.psico {
+  background: var(--c-psico-bg);
+  border-color: rgba(154,112,153,0.3);
+}
+.intro-card.inv {
+  background: var(--c-inv-bg);
+  border-color: rgba(160,120,69,0.3);
+}
+
+.intro-emoji { font-size: 1.9rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+.intro-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.intro-card.clinica h2 { color: var(--c-clinica); }
+.intro-card.psico h2   { color: var(--c-psico); }
+.intro-card.inv h2     { color: var(--c-inv); }
+
+.intro-card p {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--texto-suave);
+}
+
+/* ═══════════════════════════════════════════
+   ACORDEÓN
+═══════════════════════════════════════════ */
+.acord {
+  display: none;
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 12px;
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  animation: fadeUp 0.3s ease;
+}
+.acord.visible { display: block; }
+
+.acord-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+  gap: 0.8rem;
+}
+
+.acord-head:hover { background: var(--fondo); }
+
+.acord-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.acord-ico {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.clinica .acord-ico { background: var(--c-clinica-bg); }
+.psico .acord-ico   { background: var(--c-psico-bg); }
+.inv .acord-ico     { background: var(--c-inv-bg); }
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.b-oblig    { background: #fee2e2; color: #991b1b; }
+.b-recom    { background: #fef9c3; color: #7a4a00; }
+.b-cond     { background: #dbeafe; color: #1e3a8a; }
+
+.chevron-icon {
+  color: var(--gris-m);
+  font-size: 0.75rem;
+  transition: transform 0.28s ease;
+  flex-shrink: 0;
+}
+.chevron-icon.open { transform: rotate(180deg); }
+
+.acord-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s ease, padding 0.28s ease;
+  padding: 0 1.4rem;
+}
+.acord-body.open {
+  max-height: 2400px;
+  padding: 0.2rem 1.4rem 1.4rem;
+}
+
+/* ═══════════════════════════════════════════
+   CONTENIDO INTERNO
+═══════════════════════════════════════════ */
+.bloque { margin-bottom: 1.1rem; }
+.bloque:last-child { margin-bottom: 0; }
+
+.bloque-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gris-m);
+  margin-bottom: 0.35rem;
+}
+
+.bloque-texto {
+  font-size: 0.86rem;
+  line-height: 1.68;
+  color: var(--texto);
+}
+
+.divider {
+  height: 1px;
+  background: #ede8ec;
+  margin: 1rem 0;
+}
+
+/* NORMAS */
+.norma {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ede8ec;
+}
+.norma:last-child { border-bottom: none; }
+
+.ntag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.clinica .ntag { background: var(--c-clinica-bg); color: var(--c-clinica); }
+.psico .ntag   { background: var(--c-psico-bg);   color: var(--c-psico); }
+.inv .ntag     { background: var(--c-inv-bg);      color: var(--c-inv); }
+
+.norma-info { font-size: 0.84rem; line-height: 1.55; }
+.norma-info strong { display: block; margin-bottom: 0.12rem; font-weight: 600; }
+.norma-info span { color: var(--texto-suave); font-size: 0.8rem; }
+
+/* ERRORES */
+.error-item {
+  display: flex; gap: 0.8rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ede8ec;
+  align-items: flex-start;
+}
+.error-item:last-child { border-bottom: none; }
+
+.enum {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+
+.error-texto { font-size: 0.84rem; line-height: 1.55; }
+.error-texto strong { display: block; margin-bottom: 0.12rem; font-weight: 600; }
+.error-texto span { color: var(--texto-suave); }
+
+/* EJEMPLOS */
+.ej-box {
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  font-size: 0.83rem;
+  line-height: 1.65;
+  margin-top: 0.6rem;
+}
+.ej-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  opacity: 0.75;
+}
+.ej-debil  { background: #fff0f0; border-left: 3px solid #fca5a5; color: #7f1d1d; }
+.ej-fuerte { background: #f0fdf6; border-left: 3px solid #86efac; color: #14532d; }
+
+/* ═══════════════════════════════════════════
+   CHECKLIST
+═══════════════════════════════════════════ */
+.checklist-wrap {
+  display: none;
+}
+.checklist-wrap.visible { display: block; }
+
+.checklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.checklist-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.clinica .checklist-title { color: var(--c-clinica); }
+.psico .checklist-title   { color: var(--c-psico); }
+.inv .checklist-title     { color: var(--c-inv); }
+
+.btn-imprimir {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  border: 1.5px solid;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 0.18s;
+}
+
+.clinica .btn-imprimir { border-color: var(--c-clinica-borde); color: var(--c-clinica); }
+.clinica .btn-imprimir:hover { background: var(--c-clinica-bg); }
+
+.psico .btn-imprimir { border-color: var(--c-psico-borde); color: var(--c-psico); }
+.psico .btn-imprimir:hover { background: var(--c-psico-bg); }
+
+.inv .btn-imprimir { border-color: var(--c-inv-borde); color: var(--c-inv); }
+.inv .btn-imprimir:hover { background: var(--c-inv-bg); }
+
+.check-grupo {
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.check-grupo-titulo {
+  padding: 0.8rem 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ede8ec;
+}
+
+.clinica .check-grupo-titulo { color: var(--c-clinica); background: var(--c-clinica-bg); }
+.psico .check-grupo-titulo   { color: var(--c-psico);   background: var(--c-psico-bg); }
+.inv .check-grupo-titulo     { color: var(--c-inv);     background: var(--c-inv-bg); }
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 1.2rem;
+  border-bottom: 1px solid #f0ecef;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.check-item:last-child { border-bottom: none; }
+.check-item:hover { background: var(--fondo); }
+
+.check-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border: 2px solid #c8bfc7;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.check-item input[type="checkbox"]:checked {
+  border-color: transparent;
+}
+.clinica .check-item input:checked { background: var(--c-clinica-borde); }
+.psico .check-item input:checked   { background: var(--c-psico-borde); }
+.inv .check-item input:checked     { background: var(--c-inv-borde); }
+
+.check-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.check-label {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--texto);
+  transition: color 0.15s;
+}
+
+.check-item.checked .check-label {
+  color: var(--gris-m);
+  text-decoration: line-through;
+  text-decoration-color: var(--gris-m);
+}
+
+/* PROGRESO */
+.progreso-wrap {
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progreso-barra-fondo {
+  flex: 1;
+  height: 7px;
+  background: #ede8ec;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progreso-barra {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.35s ease;
+  width: 0%;
+}
+.clinica .progreso-barra { background: var(--c-clinica-borde); }
+.psico .progreso-barra   { background: var(--c-psico-borde); }
+.inv .progreso-barra     { background: var(--c-inv-borde); }
+
+.progreso-texto {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gris-o);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--verde);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 1.4rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+footer span { color: var(--lila); }
+
+/* ═══════════════════════════════════════════
+   ANIMACIONES
+═══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 700px) {
+  header { padding: 2rem 1.4rem 1.6rem; }
+  .selector-wrap { padding: 0 1.4rem 0; }
+  main { padding: 1.4rem 1rem 4rem; }
+  .tab-btn { padding: 0.8rem 1rem; font-size: 0.78rem; }
+  .acord-head { padding: 0.9rem 1rem; }
+  .acord-body.open { padding: 0.2rem 1rem 1.2rem; }
+  .check-grupo-titulo { padding: 0.7rem 1rem; }
+  .check-item { padding: 0.65rem 1rem; }
+  .progreso-wrap { padding: 0.8rem 1rem; }
+  .intro-card { flex-direction: column; gap: 0.6rem; padding: 1.2rem; }
+}
+
+@media (max-width: 400px) {
+  .tab-btn span.tab-label { display: none; }
+  .tab-btn { padding: 0.8rem 0.85rem; }
+}
+
+/* ═══════════════════════════════════════════
+   IMPRESIÓN
+═══════════════════════════════════════════ */
+.print-header, .print-footer { display: none; }
+
+@media print {
+  body { background: white; font-size: 11pt; }
+
+  /* Ocultar todo por defecto */
+  header, .selector-wrap, footer, .acord, .intro-card,
+  #empty-state, .btn-imprimir, .progreso-wrap,
+  .checklist-wrap { display: none !important; }
+
+  /* Mostrar solo la checklist del tipo activo según clase en body */
+  body.print-clinica #cl-checklist,
+  body.print-psico   #ps-checklist,
+  body.print-inv     #in-checklist {
+    display: block !important;
+  }
+
+  .print-header {
+    display: block !important;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid #273C2C;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+
+  .checklist-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #273C2C;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .check-grupo {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    break-inside: avoid;
+    margin-bottom: 0.8rem;
+  }
+
+  .check-grupo-titulo {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    font-size: 9pt;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .check-item {
+    padding: 0.4rem 0.8rem;
+    border-bottom: 1px solid #eee;
+    page-break-inside: avoid;
+    cursor: default;
+  }
+
+  .check-item input[type="checkbox"] {
+    border: 1.5px solid #333 !important;
+    background: white !important;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px; height: 13px;
+  }
+  .check-item input[type="checkbox"]:checked { background: white !important; }
+  .check-item input[type="checkbox"]:checked::after { display: none; }
+
+  .check-label {
+    color: #000 !important;
+    text-decoration: none !important;
+    font-size: 10pt;
+  }
+
+  .print-footer {
+    display: block !important;
+    margin-top: 1.5rem;
+    font-size: 8pt;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding-top: 0.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   TAB MTN — COLOR
+═══════════════════════════════════════════ */
+.tab-btn.active-mtn { color: #a8c0e8; border-bottom-color: #a8c0e8; }
+.tab-btn.active-mtn .tab-dot { opacity:1; background:#a8c0e8; }
+
+/* ═══════════════════════════════════════════
+   MTN VARIABLES
+═══════════════════════════════════════════ */
+:root {
+  --c-mtn:       #1f3251;
+  --c-mtn-bg:    #edf0f7;
+  --c-mtn-borde: #4a6fa5;
+}
+
+/* ═══════════════════════════════════════════
+   MTN PANEL — LAYOUT
+═══════════════════════════════════════════ */
+#mtn-panel { display:none; animation: fadeUp 0.35s ease; }
+#mtn-panel.visible { display:block; }
+
+.mtn-layout {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 1.8rem;
+  align-items: start;
+}
+
+/* MENÚ LATERAL */
+.mtn-nav {
+  position: sticky; top: 1.5rem;
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 12px;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+.mtn-nav-title {
+  font-size: 0.65rem; font-weight:700; letter-spacing:0.14em;
+  text-transform: uppercase; color: var(--gris-m);
+  padding: 0 1.1rem 0.6rem;
+  border-bottom: 1px solid #ede8ec; margin-bottom: 0.4rem;
+}
+.mtn-nav-item {
+  display: flex; align-items: center; gap: 0.55rem;
+  padding: 0.55rem 1.1rem; cursor: pointer;
+  font-size: 0.8rem; font-weight:500; color: var(--texto-suave);
+  border-left: 3px solid transparent;
+  transition: all 0.18s; line-height: 1.3; text-decoration: none;
+}
+.mtn-nav-item:hover { background: var(--fondo); color: var(--texto); }
+.mtn-nav-item.active { color:var(--c-mtn); border-left-color:var(--c-mtn-borde); background:var(--c-mtn-bg); font-weight:600; }
+.mtn-nav-num {
+  width:18px; height:18px; border-radius:50%;
+  background:var(--fondo); color:var(--gris-m);
+  font-size:0.65rem; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; transition:all 0.18s;
+}
+.mtn-nav-item.active .mtn-nav-num { background:var(--c-mtn-borde); color:white; }
+
+/* CONTENIDO */
+.mtn-content { min-width:0; }
+.mtn-section { margin-bottom:3rem; scroll-margin-top:2rem; }
+.mtn-section:last-child { margin-bottom:1rem; }
+
+.mtn-section-header {
+  display:flex; align-items:flex-start; gap:1rem;
+  margin-bottom:1.2rem; padding-bottom:1rem;
+  border-bottom: 2px solid var(--c-mtn-bg);
+}
+.mtn-nivel-badge {
+  font-size:0.65rem; font-weight:800; letter-spacing:0.12em;
+  text-transform:uppercase; color:white;
+  background:var(--c-mtn-borde); padding:0.25rem 0.6rem;
+  border-radius:5px; white-space:nowrap;
+  margin-top:0.25rem; flex-shrink:0;
+}
+.intro-badge  { background:var(--gris-m); }
+.matriz-badge { background:#5a3a6a; }
+.rec-badge    { background:var(--c-clinica-borde); }
+.ref-badge    { background:var(--gris-o); }
+
+.mtn-section-header h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem; font-weight:600; color:var(--c-mtn);
+  line-height:1.2; margin-bottom:0.2rem;
+}
+.mtn-section-header p { font-size:0.82rem; color:var(--texto-suave); line-height:1.5; }
+
+/* TEXTO */
+.mtn-prose { font-size:0.88rem; line-height:1.75; color:var(--texto); margin-bottom:1rem; }
+.mtn-prose strong { font-weight:600; }
+.mtn-subtitulo {
+  font-size:0.75rem; font-weight:700; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--c-mtn-borde); margin:1.4rem 0 0.5rem;
+}
+
+/* CAJAS */
+.mtn-box { border-radius:10px; padding:1rem 1.2rem; margin:1rem 0; font-size:0.85rem; line-height:1.65; }
+.mtn-box-info  { background:var(--c-mtn-bg); border-left:3px solid var(--c-mtn-borde); color:var(--c-mtn); }
+.mtn-box-alert { background:#fef9ec; border-left:3px solid #d4a017; color:#5a3d00; }
+.mtn-box-tip   { background:#f0fdf6; border-left:3px solid #86efac; color:#14532d; }
+.mtn-box strong { display:block; margin-bottom:0.3rem; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.8; }
+
+/* TABLA MATRIZ */
+.mtn-tabla { width:100%; border-collapse:collapse; font-size:0.8rem; margin:1rem 0; border:1px solid #ddd; border-radius:8px; overflow:hidden; }
+.mtn-tabla th { background:var(--c-mtn); color:white; padding:0.6rem 0.8rem; text-align:left; font-weight:600; font-size:0.75rem; letter-spacing:0.05em; }
+.mtn-tabla td { padding:0.6rem 0.8rem; border-bottom:1px solid #ede8ec; vertical-align:top; line-height:1.5; }
+.mtn-tabla tr:last-child td { border-bottom:none; }
+.mtn-tabla tr:nth-child(even) td { background:#f8f5f8; }
+.principio-tag { display:inline-block; font-size:0.68rem; font-weight:700; padding:0.15rem 0.4rem; border-radius:4px; margin:0.1rem 0.1rem 0.1rem 0; }
+.tag-nomal { background:#fee2e2; color:#991b1b; }
+.tag-just  { background:#dbeafe; color:#1e3a8a; }
+.tag-auto  { background:#fef9c3; color:#713f12; }
+.tag-bene  { background:#d1fae5; color:#065f46; }
+.tag-resp  { background:#ede9fe; color:#4c1d95; }
+
+/* REFERENCIAS */
+.ref-item { display:flex; gap:0.8rem; padding:0.8rem 0; border-bottom:1px solid #ede8ec; align-items:flex-start; }
+.ref-item:last-child { border-bottom:none; }
+.ref-ico { font-size:1rem; flex-shrink:0; margin-top:0.1rem; }
+.ref-texto { font-size:0.83rem; line-height:1.6; }
+.ref-texto strong { display:block; font-weight:600; color:var(--texto); }
+.ref-texto span { color:var(--texto-suave); }
+.ref-texto a { color:var(--c-mtn-borde); text-decoration:none; font-size:0.8rem; display:inline-flex; align-items:center; gap:0.2rem; margin-top:0.2rem; }
+.ref-texto a:hover { text-decoration:underline; }
+
+/* RESPONSIVE MTN */
+@media (max-width:700px) {
+  .mtn-layout { grid-template-columns:1fr; }
+  .mtn-nav { position:static; display:flex; flex-wrap:nowrap; overflow-x:auto; border-radius:10px; padding:0.5rem 0; scrollbar-width:none; }
+  .mtn-nav::-webkit-scrollbar { display:none; }
+  .mtn-nav-title { display:none; }
+  .mtn-nav-item { border-left:none; border-bottom:3px solid transparent; white-space:nowrap; padding:0.5rem 0.9rem; font-size:0.75rem; }
+  .mtn-nav-item.active { border-left:none; border-bottom-color:var(--c-mtn-borde); background:var(--c-mtn-bg); }
+  .mtn-nav-num { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-eyebrow">Ética Psicológica · Recurso de apoyo para prácticas</div>
+  <h1>Guía para construir<br><em>consentimientos informados</em></h1>
+  <p class="header-sub">Selecciona el tipo de actividad para ver criterios, marco normativo, errores frecuentes, ejemplos de redacción y lista de verificación.</p>
+</header>
+
+<!-- SELECTOR -->
+<div class="selector-wrap">
+  <div class="selector-tabs">
+    <button class="tab-btn" id="tab-clinica" onclick="setTipo('clinica')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Intervención clínica</span>
+    </button>
+    <button class="tab-btn" id="tab-psico" onclick="setTipo('psico')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Programa psicosocial</span>
+    </button>
+    <button class="tab-btn" id="tab-inv" onclick="setTipo('inv')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Investigación</span>
+    </button>
+    <button class="tab-btn" id="tab-mtn" onclick="setTipo('mtn')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Modelo de Tres Niveles</span>
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- VACÍO -->
+  <div id="empty-state">
+    <div class="empty-icon">⟵</div>
+    <h3>Selecciona un tipo de actividad</h3>
+    <p>El contenido se organizará según el contexto en que usarás el consentimiento informado.</p>
+  </div>
+
+  <!-- ══════════ CLÍNICA ══════════ -->
+  <div class="intro-card clinica" id="intro-clinica">
+    <div class="intro-emoji">🩺</div>
+    <div>
+      <h2>Intervención clínica individual</h2>
+      <p>Regula la relación terapéutica continua. Es el más detallado: debe incluir el protocolo completo de excepción de confidencialidad y los aspectos operativos del vínculo terapéutico.</p>
+    </div>
+  </div>
+
+  <!-- Componentes -->
+  <div class="acord clinica" id="ac-cl-comp">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title">
+        <div class="acord-ico">📋</div> Componentes obligatorios
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="bloque"><div class="bloque-label">Identificación del profesional</div><div class="bloque-texto">Nombre completo, número de tarjeta profesional, datos de contacto. En formación práctica: incluir datos del supervisor y de la institución.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Propósito y actividades</div><div class="bloque-texto">Descripción del proceso de evaluación e intervención: enfoques terapéuticos en lenguaje accesible, modalidad (presencial/telepsicología), frecuencia y duración estimada.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Beneficios y riesgos</div><div class="bloque-texto">Beneficios reales y esperables sin prometer resultados. Riesgos: mencionar la posibilidad de malestar emocional y describir su manejo.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Confidencialidad y excepciones</div><div class="bloque-texto">Qué se registra, quién tiene acceso, protocolo paso a paso para la excepción (riesgo para sí mismo u otros). No basta enunciarla: debe describirse el procedimiento completo.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Derechos y deberes</div><div class="bloque-texto">Derecho al retiro sin consecuencias, a conocer la historia clínica, a hacer preguntas, a ser informado del curso del proceso. Deberes: asistencia, honorarios, participación activa.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Asuntos operativos</div><div class="bloque-texto">Canales de comunicación, protocolos para emergencias, recursos de crisis. Si incluye telepsicología: plataformas autorizadas, protocolos ante falla técnica, privacidad del entorno.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Firma</div><div class="bloque-texto">Paciente: nombre completo, documento, fecha. Profesional: nombre, tarjeta profesional. Contacto de emergencia del paciente.</div></div>
+    </div>
+  </div>
+
+  <!-- Normas -->
+  <div class="acord clinica" id="ac-cl-norm">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚖️</div> Marco normativo colombiano</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="norma"><span class="ntag">Ley 1090/2006</span><div class="norma-info"><strong>Código Deontológico del Psicólogo</strong><span>Art. 2°, num. 5°: deber de confidencialidad y sus excepciones. Referencia central para toda intervención clínica.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1581/2012</span><div class="norma-info"><strong>Protección de Datos Personales</strong><span>Aplica al registro y custodia de historia clínica. Indica cómo se almacenan los datos y quién tiene acceso.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1996/2019</span><div class="norma-info"><strong>Capacidad legal con discapacidad</strong><span>Enfoque de apoyo a la autonomía (no representación). Aplica cuando el paciente requiere apoyos para decidir.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1098/2006</span><div class="norma-info"><strong>Código de Infancia y Adolescencia</strong><span>En menores: consentimiento del representante legal + asentimiento del menor. Ambos son necesarios; ninguno reemplaza al otro.</span></div></div>
+    </div>
+  </div>
+
+  <!-- Errores -->
+  <div class="acord clinica" id="ac-cl-err">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚠️</div> Errores frecuentes</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="error-item"><div class="enum">1</div><div class="error-texto"><strong>Enunciar la confidencialidad sin describir el procedimiento de excepción</strong><span>"Salvo en situaciones de riesgo" es insuficiente. El paciente tiene derecho a saber exactamente cómo procederá el profesional.</span></div></div>
+      <div class="error-item"><div class="enum">2</div><div class="error-texto"><strong>No distinguir el rol clínico del rol pericial</strong><span>En contextos de violencia o procesos judiciales, el documento debe aclarar explícitamente el alcance del rol.</span></div></div>
+      <div class="error-item"><div class="enum">3</div><div class="error-texto"><strong>Usar tecnicismos sin traducción</strong><span>"Terapias contextuales" o "activación conductual" deben explicarse en términos de qué hará la persona en las sesiones.</span></div></div>
+      <div class="error-item"><div class="enum">4</div><div class="error-texto"><strong>No incluir datos del supervisor en formación práctica</strong><span>El paciente debe poder acceder a la cadena de responsabilidad. El practicante no es el único responsable del proceso.</span></div></div>
+    </div>
+  </div>
+
+  <!-- Ejemplo -->
+  <div class="acord clinica" id="ac-cl-ej">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">✏️</div> Ejemplo: excepción de confidencialidad</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="ej-box ej-debil"><div class="ej-label">❌ Redacción débil</div>"La información es confidencial, salvo en situaciones de riesgo para usted o para otros."</div>
+      <div class="ej-box ej-fuerte" style="margin-top:.8rem"><div class="ej-label">✓ Redacción recomendada</div>"La información que compartas es confidencial. Sin embargo, si considero que existe un riesgo sustancial para tu vida o la de otras personas, estoy obligada legalmente a tomar medidas de protección. En ese caso: te lo haré saber previamente; evaluaremos juntos la situación; te explicaré por qué es necesario contactar a alguien; solo revelaré la información estrictamente necesaria. Esta excepción está amparada en el artículo 2°, numeral 5° de la Ley 1090 de 2006."</div>
+    </div>
+  </div>
+
+  <!-- Checklist clínica -->
+  <div class="checklist-wrap clinica" id="cl-checklist">
+    <div class="print-header">
+      <strong>Lista de verificación — Intervención clínica individual</strong><br>
+      Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026
+    </div>
+    <div class="checklist-header">
+      <div class="checklist-title">Lista de verificación</div>
+    </div>
+    <div class="progreso-wrap">
+      <div class="progreso-barra-fondo"><div class="progreso-barra" id="prog-clinica"></div></div>
+      <div class="progreso-texto" id="prog-texto-clinica">0 / 0</div>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Información general</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Identifica al profesional: nombre, tarjeta profesional, datos de contacto</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">En formación práctica: incluye datos del supervisor e institución</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">El propósito del proceso está explicado en lenguaje comprensible para el paciente</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Describe las actividades, modalidad, frecuencia y duración estimada</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Beneficios y riesgos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Describe beneficios de forma realista (sin prometer resultados)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Menciona la posibilidad de malestar emocional y cómo se manejará</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Incluye recursos de apoyo en crisis disponibles fuera de sesión</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Confidencialidad</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Explica qué información se registra y quién tiene acceso</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Describe el procedimiento paso a paso de la excepción de confidencialidad</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Cita la norma correspondiente (Ley 1090/2006, art. 2°, num. 5°)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Si incluye telepsicología: especifica plataformas, protocolos de falla y privacidad del entorno</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Autonomía y voluntariedad</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Indica que la participación es voluntaria y el retiro no tiene consecuencias</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Explica cómo se ejerce el derecho al retiro y qué ocurre con los datos</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">No hay lenguaje que induzca, presione o genere sentido de obligación</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Aspectos formales</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">El documento está completo (sin instrucciones al redactor visibles)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Incluye firma del paciente con nombre, documento e identidad y fecha</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Incluye firma del profesional con número de tarjeta profesional</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Si el paciente es menor: consentimiento del representante + asentimiento del menor</span></label>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn-imprimir" onclick="imprimir('clinica')">🖨 Imprimir checklist</button>
+    </div>
+    <div class="print-footer">Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026 · Ética Psicológica</div>
+  </div>
+
+
+  <!-- ══════════ PSICOSOCIAL ══════════ -->
+  <div class="intro-card psico" id="intro-psico">
+    <div class="intro-emoji">👥</div>
+    <div>
+      <h2>Programa psicosocial grupal</h2>
+      <p>Informa sobre una intervención con sesiones definidas, dirigida a grupos. Equilibra claridad para participantes no especializados con el rigor ético exigido por la normativa colombiana.</p>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-comp">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">📋</div> Componentes obligatorios</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="bloque"><div class="bloque-label">Descripción del programa</div><div class="bloque-texto">Nombre, objetivo, número de sesiones, duración, modalidad, estructura temática. Lenguaje accesible al perfil del participante.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Beneficios individuales y colectivos</div><div class="bloque-texto">Diferenciar beneficios para el participante y para su comunidad. Deben ser realistas. Si no hay retribución económica, indicarlo explícitamente.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Riesgos y recursos de apoyo</div><div class="bloque-texto">Clasificar según Resolución 8430/1993. Describir concretamente. Incluir listado de líneas de atención en salud mental al final del documento.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Manejo de la información</div><div class="bloque-texto">Qué datos se recopilan, para qué, quién tiene acceso, cómo se custodian. Mencionar excepción de confidencialidad ante riesgo para sí mismo u otros.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Voluntariedad y retiro</div><div class="bloque-texto">Participación voluntaria, retiro sin consecuencias negativas. Si aplica: posibilidad de conocer resultados del programa al finalizar.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Firma y verificación de comprensión</div><div class="bloque-texto">Firma del participante con datos de identificación y fecha. Firma de testigo si el contexto lo requiere. Verificación explícita de comprensión (lista SÍ/NO recomendada).</div></div>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-norm">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚖️</div> Marco normativo colombiano</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="norma"><span class="ntag">Ley 1090/2006</span><div class="norma-info"><strong>Código Deontológico del Psicólogo</strong><span>Principios de beneficencia, no maleficencia y respeto por la autonomía. Excepciones de confidencialidad.</span></div></div>
+      <div class="norma"><span class="ntag">Res. 8430/1993</span><div class="norma-info"><strong>Investigación en salud con seres humanos</strong><span>Define categorías de riesgo. Referente técnico para clasificar riesgos en intervenciones psicosociales.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1098/2006</span><div class="norma-info"><strong>Código de Infancia y Adolescencia</strong><span>Si el programa incluye menores: consentimiento del representante + asentimiento del menor.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-err">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚠️</div> Errores frecuentes</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="error-item"><div class="enum">1</div><div class="error-texto"><strong>Entregar una plantilla sin completar</strong><span>Instrucciones al redactor visibles en el documento final comprometen la comprensibilidad y la validez ética del consentimiento.</span></div></div>
+      <div class="error-item"><div class="enum">2</div><div class="error-texto"><strong>Minimizar los riesgos sin fundamento normativo</strong><span>"No se esperan riesgos significativos" sin clasificación según Res. 8430 es insuficiente, especialmente en programas que abordan experiencias difíciles.</span></div></div>
+      <div class="error-item"><div class="enum">3</div><div class="error-texto"><strong>No incluir recursos de apoyo en salud mental</strong><span>En programas grupales sobre temáticas sensibles, el listado de líneas de atención es un componente ético, no un anexo opcional.</span></div></div>
+      <div class="error-item"><div class="enum">4</div><div class="error-texto"><strong>No diferenciar beneficios individuales y colectivos</strong><span>En programas grupales el participante puede beneficiarse a sí mismo y a su comunidad. Explicitarlo fortalece la honestidad del documento.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-ej">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">✏️</div> Ejemplo: descripción de riesgos</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="ej-box ej-debil"><div class="ej-label">❌ Redacción débil</div>"No se esperan riesgos significativos derivados de su participación."</div>
+      <div class="ej-box ej-fuerte" style="margin-top:.8rem"><div class="ej-label">✓ Redacción recomendada</div>"De acuerdo con la Resolución 8430 de 1993, esta intervención se clasifica como de riesgo mínimo. Es posible que algunas sesiones generen malestar emocional al abordar experiencias personales. Si esto ocurre, contará con el acompañamiento del equipo facilitador. Si necesita apoyo adicional fuera de las sesiones, puede comunicarse con [nombre del supervisor / línea de atención]. Al final de este documento encontrará un listado de recursos de salud mental disponibles."</div>
+    </div>
+  </div>
+
+  <!-- Checklist psicosocial -->
+  <div class="checklist-wrap psico" id="ps-checklist">
+    <div class="print-header">
+      <strong>Lista de verificación — Programa psicosocial grupal</strong><br>
+      Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026
+    </div>
+    <div class="checklist-header">
+      <div class="checklist-title">Lista de verificación</div>
+    </div>
+    <div class="progreso-wrap">
+      <div class="progreso-barra-fondo"><div class="progreso-barra" id="prog-psico"></div></div>
+      <div class="progreso-texto" id="prog-texto-psico">0 / 0</div>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Descripción del programa</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Nombre del programa y objetivo en lenguaje comprensible para los participantes</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Número de sesiones, duración de cada una y modalidad (presencial/virtual)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Estructura temática o descripción de módulos</span></label>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Beneficios y riesgos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Diferencia beneficios individuales y colectivos</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Clasifica los riesgos según Resolución 8430/1993</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Describe los riesgos con precisión (no de forma genérica)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Incluye listado de líneas de atención en salud mental</span></label>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Confidencialidad y datos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Especifica qué datos se recopilan, para qué y quién tiene acceso</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Menciona la excepción de confidencialidad ante riesgo</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Indica cómo se custodian los datos</span></label>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Autonomía y aspectos formales</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Indica que la participación es voluntaria y el retiro no tiene consecuencias</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">El documento está completo (sin instrucciones al redactor visibles)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Incluye firma del participante con datos de identificación y fecha</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Si incluye menores: consentimiento del representante + asentimiento del menor</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Cita al menos una norma pertinente (Ley 1090/2006 o Res. 8430/1993)</span></label>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn-imprimir" onclick="imprimir('psico')">🖨 Imprimir checklist</button>
+    </div>
+    <div class="print-footer">Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026 · Ética Psicológica</div>
+  </div>
+
+
+  <!-- ══════════ INVESTIGACIÓN ══════════ -->
+  <div class="intro-card inv" id="intro-inv">
+    <div class="intro-emoji">🔬</div>
+    <div>
+      <h2>Investigación</h2>
+      <p>Garantiza la participación informada y voluntaria en la generación de conocimiento. Requiere aval de comité de ética institucional. Énfasis en anonimización, custodia de datos y acceso a resultados.</p>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-comp">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">📋</div> Componentes obligatorios</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="bloque"><div class="bloque-label">Propósito del estudio</div><div class="bloque-texto">Objetivo en lenguaje comprensible. Sin jerga metodológica. Mencionar el aval institucional y los datos de contacto del comité de ética.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Descripción de actividades</div><div class="bloque-texto">Qué hará exactamente el participante (cuestionarios, entrevistas, grupos focales), tiempo requerido, número de momentos de recolección.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Beneficios</div><div class="bloque-texto">Generalmente indirectos (contribución al conocimiento). Si hay retroalimentación de resultados, indicarlo. No prometer beneficios terapéuticos si el estudio no los contempla.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Riesgos y clasificación normativa</div><div class="bloque-texto">Clasificar explícitamente según Resolución 8430/1993. No usar expresiones genéricas. Incluir recursos de apoyo si la temática es sensible.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Manejo de datos</div><div class="bloque-texto">Qué datos se recopilan, cómo se anonimiza (códigos, seudónimos), dónde se custodian, por cuánto tiempo, quién tiene acceso. Citar Ley 1581/2012.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Voluntariedad, retiro y acceso a resultados</div><div class="bloque-texto">Retiro en cualquier momento sin consecuencias. Qué pasa con los datos al retirarse. Derecho a conocer los resultados finales del estudio.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Contactos institucionales</div><div class="bloque-texto">Investigador principal (nombre, correo, teléfono) y comité de ética de la facultad o institución (correo, datos de contacto). Ambos son obligatorios.</div></div>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-norm">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚖️</div> Marco normativo colombiano</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="norma"><span class="ntag">Res. 8430/1993</span><div class="norma-info"><strong>Normas para investigación en salud</strong><span>Define categorías de riesgo y requisitos del consentimiento. Es la norma principal para toda investigación psicológica con participantes humanos.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1581/2012</span><div class="norma-info"><strong>Protección de Datos Personales</strong><span>Obligatoria cuando se recopilan y procesan datos personales. Especificar cómo se custodian y durante cuánto tiempo.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1090/2006</span><div class="norma-info"><strong>Código Deontológico del Psicólogo</strong><span>Aplica cuando la investigación involucra intervención directa o recolección de información clínica.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1098/2006</span><div class="norma-info"><strong>Código de Infancia y Adolescencia</strong><span>Si la muestra incluye menores: consentimiento del representante + asentimiento del menor. Los dos son obligatorios.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-err">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚠️</div> Errores frecuentes</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="error-item"><div class="enum">1</div><div class="error-texto"><strong>No incluir datos de contacto del comité de ética</strong><span>El participante necesita una instancia de supervisión externa al equipo investigador. Su ausencia puede invalidar el aval institucional.</span></div></div>
+      <div class="error-item"><div class="enum">2</div><div class="error-texto"><strong>Confundir investigación con intervención</strong><span>Si el estudio tiene simultáneamente propósito investigativo y terapéutico, se necesitan dos consentimientos o uno que diferencie explícitamente ambos propósitos.</span></div></div>
+      <div class="error-item"><div class="enum">3</div><div class="error-texto"><strong>Prometer beneficios terapéuticos sin justificación</strong><span>En investigación los beneficios son generalmente indirectos. Prometer mejoras individuales no garantizadas vulnera el principio de honestidad.</span></div></div>
+      <div class="error-item"><div class="enum">4</div><div class="error-texto"><strong>No especificar qué ocurre con los datos al retirarse</strong><span>El participante tiene derecho a saber si sus datos serán eliminados o si, bajo anonimización, podrán seguir siendo usados.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-ej">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">✏️</div> Ejemplo: voluntariedad y retiro</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="ej-box ej-debil"><div class="ej-label">❌ Redacción débil</div>"La participación es voluntaria y puede retirarse en cualquier momento."</div>
+      <div class="ej-box ej-fuerte" style="margin-top:.8rem"><div class="ej-label">✓ Redacción recomendada</div>"Su participación es completamente voluntaria. Puede retirarse en cualquier momento sin necesidad de dar explicaciones y sin consecuencia alguna. Si decide retirarse, sus datos serán eliminados a solicitud suya, salvo que autorice expresamente su uso en forma anonimizada. Si completa su participación, tiene derecho a conocer los resultados generales del estudio una vez finalizado, solicitándolos al investigador principal en la dirección indicada al final de este documento."</div>
+    </div>
+  </div>
+
+  <!-- Checklist investigación -->
+  <div class="checklist-wrap inv" id="in-checklist">
+    <div class="print-header">
+      <strong>Lista de verificación — Investigación</strong><br>
+      Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026
+    </div>
+    <div class="checklist-header">
+      <div class="checklist-title">Lista de verificación</div>
+    </div>
+    <div class="progreso-wrap">
+      <div class="progreso-barra-fondo"><div class="progreso-barra" id="prog-inv"></div></div>
+      <div class="progreso-texto" id="prog-texto-inv">0 / 0</div>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Información general</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">El propósito del estudio está explicado en lenguaje comprensible (sin jerga metodológica)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Describe exactamente qué hará el participante, cuánto tiempo tomará y en cuántos momentos</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Menciona el aval institucional del comité de ética</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Incluye datos de contacto del investigador principal y del comité de ética</span></label>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Beneficios y riesgos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Los beneficios descritos son realistas (generalmente indirectos en investigación)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">No se prometen beneficios terapéuticos que el estudio no garantiza</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Los riesgos están clasificados según Resolución 8430/1993 y descritos con precisión</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Si la temática es sensible: incluye recursos de apoyo en salud mental</span></label>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Manejo de datos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Especifica qué datos se recopilan y para qué</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Describe el mecanismo de anonimización (códigos, seudónimos)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Indica dónde se custodian los datos, quién tiene acceso y por cuánto tiempo</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Cita la Ley 1581/2012</span></label>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Autonomía y aspectos formales</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Indica que la participación es voluntaria y el retiro no tiene consecuencias</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Explica qué ocurre con los datos si el participante se retira</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">El participante tiene derecho a conocer los resultados finales del estudio</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">El documento está completo (sin instrucciones al redactor visibles)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Incluye firma del participante con nombre, documento e identidad y fecha</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Si la muestra incluye menores: consentimiento del representante + asentimiento del menor</span></label>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn-imprimir" onclick="imprimir('inv')">🖨 Imprimir checklist</button>
+    </div>
+    <div class="print-footer">Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026 · Ética Psicológica</div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MODELO DE TRES NIVELES
+  ══════════════════════════════════════ -->
+  <div id="mtn-panel">
+
+    <div class="mtn-layout">
+
+      <!-- MENÚ LATERAL -->
+      <nav class="mtn-nav" id="mtn-nav">
+        <div class="mtn-nav-title">Contenido</div>
+        <a class="mtn-nav-item active" href="#mtn-intro" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">◆</span> ¿Qué es el MTN?
+        </a>
+        <a class="mtn-nav-item" href="#mtn-n1" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">1</span> Nivel 1 · Sustanciación
+        </a>
+        <a class="mtn-nav-item" href="#mtn-n2" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">2</span> Nivel 2 · Fundamentación
+        </a>
+        <a class="mtn-nav-item" href="#mtn-n3" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">3</span> Nivel 3 · Proposición
+        </a>
+        <a class="mtn-nav-item" href="#mtn-matriz" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">⊞</span> Matriz de principios
+        </a>
+        <a class="mtn-nav-item" href="#mtn-rec" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">★</span> Recomendaciones
+        </a>
+        <a class="mtn-nav-item" href="#mtn-ref" onclick="mtnNav(this)">
+          <span class="mtn-nav-num">↗</span> Referencias
+        </a>
+      </nav>
+
+      <!-- CONTENIDO -->
+      <div class="mtn-content">
+
+        <!-- INTRO -->
+        <section class="mtn-section" id="mtn-intro">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge intro-badge">Introducción</span>
+            <div>
+              <h2>¿Qué es el Modelo de Tres Niveles?</h2>
+              <p>Amaya y Berrío-Acosta · eticapsicologica.org</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">El Modelo de Tres Niveles (MTN) es una guía estructurada para enfrentar situaciones dilemáticas en la práctica psicológica profesional, elaborada con especial atención al contexto colombiano. No es un protocolo rígido ni un algoritmo de respuestas correctas: es un marco que organiza el proceso de razonamiento ético para que ningún aspecto relevante quede sin considerar.</p>
+
+          <p class="mtn-prose">El modelo puede usarse de dos maneras: <strong>pre-hoc</strong>, antes de actuar, cuando se anticipa que una situación puede generar un dilema; y <strong>post-hoc</strong>, para evaluar una intervención ya iniciada o concluida, con fines académicos o de supervisión. En el contexto de formación práctica, ambos usos son válidos y complementarios.</p>
+
+          <div class="mtn-box mtn-box-info">
+            <strong>Nota pedagógica clave</strong>
+            No todos los elementos del modelo son necesarios en cada caso. El profesional con experiencia selecciona los aspectos pertinentes. Sin embargo, en formación es recomendable recorrer el modelo completo, porque los errores éticos suelen ocurrir en los dos extremos del aprendizaje: cuando hay impericia, y cuando la experiencia genera exceso de confianza.
+          </div>
+
+          <div class="mtn-subtitulo">Dilema ético vs. conflicto técnico o legal</div>
+          <p class="mtn-prose">El MTN aplica a <strong>dilemas éticos</strong>, no a decisiones técnicas ni conflictos legales. Un dilema ético ocurre cuando dos o más principios válidos entran en tensión y no es posible satisfacer ambos simultáneamente. Una decisión técnica — elegir entre dos intervenciones igualmente orientadas al bienestar del paciente — no constituye un dilema ético, aunque puede ser difícil. Identificar correctamente el tipo de problema es el primer paso del análisis.</p>
+
+          <div class="mtn-box mtn-box-alert">
+            <strong>Antes de aplicar el modelo</strong>
+            Pregúntate: ¿estoy ante una tensión entre principios éticos, o ante una decisión técnica, un conflicto legal o una restricción institucional? Si la respuesta no involucra principios en conflicto, el MTN no es la herramienta adecuada para ese aspecto del caso — aunque puede usarse complementariamente.
+          </div>
+        </section>
+
+        <!-- NIVEL 1 -->
+        <section class="mtn-section" id="mtn-n1">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge">Nivel 1</span>
+            <div>
+              <h2>Sustanciación de los hechos</h2>
+              <p>Organizar, clarificar, identificar el dilema real</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">El primer nivel tiene un propósito que con frecuencia se subestima: <strong>ordenar antes de opinar</strong>. Su función es construir una base objetiva sobre la cual sea posible el análisis ético. Sin esta base, el razonamiento se apoya en supuestos, narrativas incompletas o interpretaciones no verificadas.</p>
+
+          <div class="mtn-subtitulo">1.1 Clarificación de hechos, circunstancias y contexto</div>
+          <p class="mtn-prose">Identifica las narraciones presentes en el caso y separa los <strong>hechos demostrables</strong> de las elaboraciones subjetivas. En psicología, la experiencia vivida es un dato legítimo; en el análisis ético, necesitas distinguir qué puedes sustentar objetivamente. Describe circunstancias relevantes: quiénes participan, cuándo y dónde ocurren los hechos, características psicosociales pertinentes, capacidad de los participantes para tomar decisiones, redes de apoyo, relaciones duales posibles.</p>
+
+          <div class="mtn-box mtn-box-tip">
+            <strong>En la práctica</strong>
+            Escribe una descripción del caso en dos columnas: hechos verificables a la izquierda, interpretaciones y suposiciones a la derecha. Este ejercicio suele revelar cuánto del análisis inicial estaba basado en narrativa, no en evidencia.
+          </div>
+
+          <div class="mtn-subtitulo">1.2 Clarificación de conceptos</div>
+          <p class="mtn-prose">Cuando el caso involucra varias disciplinas — derecho, medicina, psicología, trabajo social — los mismos términos pueden tener significados distintos. "Abuso", "capacidad", "riesgo" o "consentimiento" no significan lo mismo en cada campo. Identifica los términos ambiguos, consulta fuentes especializadas de cada disciplina y define explícitamente qué sentido usarás en tu análisis. Indica las fuentes consultadas.</p>
+
+          <div class="mtn-subtitulo">1.3 Identificación y formulación del dilema</div>
+          <p class="mtn-prose">Una vez tienes los hechos claros, formula el dilema con precisión. La forma recomendada es una <strong>pregunta disyuntiva</strong>: ¿actuar de la manera A o de la manera B? Esto obliga a hacer visible el conflicto de principios en lugar de dejarlo implícito. Identifica qué principio se vería afectado si privilegias cada alternativa y de qué manera. No confundas el dilema ético con el dilema técnico: si ambas opciones están orientadas por el mismo principio, estás ante una decisión técnica.</p>
+
+          <p class="mtn-prose"><em>Ejemplo de formulación correcta:</em> "¿Debo revelar a los padres la ideación suicida que el adolescente me comunicó en sesión, para proteger su vida (no-maleficencia), o debo mantener la confidencialidad que él solicitó explícitamente (autonomía)?"</p>
+        </section>
+
+        <!-- NIVEL 2 -->
+        <section class="mtn-section" id="mtn-n2">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge">Nivel 2</span>
+            <div>
+              <h2>Fundamentación</h2>
+              <p>Consultar las fuentes éticas, normativas y de referencia</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">El segundo nivel responde a la complejidad de las situaciones éticas profesionales, donde confluyen demandas de la deontología psicológica, la legislación vigente, las exigencias contractuales y las normas de distintas disciplinas. Su propósito es que el análisis no descanse solo en la intuición o el recuerdo del curso, sino en fuentes explícitas y verificables.</p>
+
+          <div class="mtn-subtitulo">2.1 Fuentes éticas</div>
+          <p class="mtn-prose">Son los códigos y declaraciones que orientan la profesión. En el contexto colombiano, las referencias centrales son la <strong>Ley 1090 de 2006</strong> y el <strong>Manual Deontológico y Bioético del Psicólogo</strong>. A nivel internacional: la Declaración Universal de Principios Éticos para Psicólogas y Psicólogos (IUPsyS) y la Declaración Universal sobre Bioética y Derechos Humanos (UNESCO, 2005). No basta citar la norma: debes indicar qué artículo o sección específica aplica al caso y de qué manera contribuye a resolver el dilema.</p>
+
+          <div class="mtn-subtitulo">2.2 Fuentes normativas</div>
+          <p class="mtn-prose">Son las leyes vigentes con relevancia para el caso. Además de la Ley 1090, son frecuentemente pertinentes la Ley 1098 de 2006 (infancia y adolescencia), la Resolución 8430 de 1993 (investigación en salud), la Ley 1581 de 2012 (protección de datos) y la Resolución 1995 de 1999 (historia clínica). Sé explícito: indica el artículo concreto y cómo aplica. Cuando encuentres tensión entre normas — lo cual ocurre, por ejemplo, en materia de secreto profesional en Colombia — nómbralo y analízalo, no lo eludas.</p>
+
+          <div class="mtn-box mtn-box-alert">
+            <strong>Tensión ética-normativa</strong>
+            En algunos casos la ética y la legislación apuntan en direcciones distintas. Esta tensión es real en la práctica psicológica en todo el mundo y en Colombia tiene expresiones específicas. Cuando la encuentres, no la ignores: documentarla y razonarla es parte del análisis.
+          </div>
+
+          <div class="mtn-subtitulo">2.3 Fuentes de referencia</div>
+          <p class="mtn-prose">Artículos especializados, libros profesionales, jurisprudencias o decisiones previas del Tribunal Nacional Deontológico de Psicología sobre situaciones similares. Su propósito es aportar antecedentes que iluminen el caso y amplíen el campo de alternativas posibles.</p>
+        </section>
+
+        <!-- NIVEL 3 -->
+        <section class="mtn-section" id="mtn-n3">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge">Nivel 3</span>
+            <div>
+              <h2>Análisis y proposición</h2>
+              <p>Decidir con fundamento, explorar alternativas, construir una postura resolutiva</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">El tercer nivel articula todo lo anterior para proponer una solución fundamentada. Tiene tres momentos que deben recorrerse en orden: el juicio de principios, la valoración de alternativas y el juicio fundado.</p>
+
+          <div class="mtn-subtitulo">3.1 Juicio de principios</div>
+          <p class="mtn-prose">Aquí pesas los principios en conflicto identificados en el Nivel 1. Distintos códigos éticos resuelven este problema de maneras diferentes: algunos establecen jerarquías explícitas (el Código Canadiense privilegia la beneficencia sobre otros principios); otros colocan todos los principios en el mismo nivel. En el contexto colombiano, la matriz del Manual Deontológico y Bioético del Psicólogo — y su versión actualizada en el Acuerdo 17 de 2019 de Colpsic — ofrece una jerarquización que parte de la dignidad humana como fundamento, seguida del principio de responsabilidad, y luego los cuatro principios de la bioética liberal: no-maleficencia, justicia, autonomía y beneficencia. Un criterio frecuente en modelos internacionales es que la <strong>no-maleficencia</strong> representa la obligación mínima en cualquier prestación de servicios psicológicos.</p>
+
+          <div class="mtn-subtitulo">3.2 Valoración de alternativas</div>
+          <p class="mtn-prose">No te quedes con la primera solución que surge. Los dilemas suelen presentarse como disyuntivas entre dos opciones, pero esta encrucijada frecuentemente es reduccionista. El MTN propone explorar <strong>terceras vías</strong>: alternativas que no son ninguno de los dos extremos aparentes y que emergen de un análisis más cuidadoso de la situación.</p>
+
+          <p class="mtn-prose"><em>Ejemplo:</em> ante la disyuntiva "comunico la ideación suicida del adolescente a sus padres / no la comunico", una tercera vía podría ser acompañar al adolescente para que él mismo informe a sus padres en el espacio terapéutico, preservando parcialmente su autonomía mientras se gestiona el riesgo. Para cada alternativa, analiza: ¿qué principios quedan respetados?, ¿cuáles se ven afectados?, ¿qué nivel de riesgo ético implica?, ¿te sientes cómodo con esa decisión ante un tribunal o ante tu supervisor?</p>
+
+          <div class="mtn-box mtn-box-tip">
+            <strong>Pregunta de control</strong>
+            Antes de cerrar el análisis de alternativas: ¿hay una tercera vía que no has considerado? ¿Remitir el caso, ampliar el equipo, reevaluar, consultar a un par? Reconocer los límites de tu competencia y actuar en consecuencia es parte del razonamiento ético, no una admisión de fracaso.
+          </div>
+
+          <div class="mtn-subtitulo">3.3 Juicio fundado</div>
+          <p class="mtn-prose">Es la etapa final. Aquí construyes una <strong>postura resolutiva</strong>: indica las alternativas que consideras éticamente válidas, escribe tu decisión final y explícala ampliamente, sustentándola en los artículos y contenidos de los códigos y normas consultados. En el contexto académico, este es el producto evaluable: no la "respuesta correcta", sino la calidad y transparencia del razonamiento que te llevó a ella. La postura puede incluir recomendaciones de seguimiento o señalar aspectos que requieren mayor clarificación.</p>
+        </section>
+
+        <!-- MATRIZ -->
+        <section class="mtn-section" id="mtn-matriz">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge matriz-badge">Matriz</span>
+            <div>
+              <h2>Jerarquía de principios</h2>
+              <p>Acuerdo 17 de 2019 · Colpsic · Manual Deontológico y Bioético del Psicólogo</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">La matriz del Acuerdo 17 de 2019 de Colpsic organiza visualmente la estructura jerárquica de los principios éticos y deontológicos que rigen el ejercicio de la psicología en Colombia, articulando las Leyes 1090 de 2006 y 1164 de 2007 con la jerarquización de Diego Gracia en tres niveles y con los principios de la Declaración Universal de Principios Éticos para Psicólogos (IUPsyS). Comprender esta jerarquía es esencial para el Nivel 3 del MTN, específicamente para el juicio de principios.</p>
+
+          <div class="mtn-subtitulo">Estructura jerárquica</div>
+
+          <table class="mtn-tabla">
+            <thead>
+              <tr>
+                <th>Nivel</th>
+                <th>Principio</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Protomoral</strong></td>
+                <td><span class="principio-tag tag-resp">Dignidad humana</span></td>
+                <td>Fundamento de todo principio. Base filosófica desde la cual se deriva la obligación ética en psicología.</td>
+              </tr>
+              <tr>
+                <td><strong>Fundamental</strong></td>
+                <td><span class="principio-tag tag-resp">Responsabilidad</span></td>
+                <td>Principio fundamental que articula la deontología psicológica. Implica responder por los actos profesionales ante el usuario, la profesión y la sociedad.</td>
+              </tr>
+              <tr>
+                <td><strong>Bioética liberal I</strong><br><em>Derechos y obligatoriedad moral</em></td>
+                <td><span class="principio-tag tag-nomal">No-maleficencia</span> <span class="principio-tag tag-just">Justicia</span></td>
+                <td>No-maleficencia: obligación mínima en cualquier prestación de servicios. Justicia: trato equitativo, acceso igualitario, distribución justa de beneficios y cargas.</td>
+              </tr>
+              <tr>
+                <td><strong>Bioética liberal II</strong><br><em>Libre desarrollo y elección ética</em></td>
+                <td><span class="principio-tag tag-auto">Autonomía</span> <span class="principio-tag tag-bene">Beneficencia</span></td>
+                <td>Autonomía: derecho del usuario a tomar decisiones informadas sobre su propio proceso. Beneficencia: actuar en pro del mejor interés del usuario; ligada indisolublemente a la competencia profesional.</td>
+              </tr>
+              <tr>
+                <td><strong>Subsidiarios</strong></td>
+                <td>Múltiples</td>
+                <td>Lealtad, veracidad, integridad, solidaridad, totalidad, doble efecto, conflicto de deberes, responsabilidades científicas con la sociedad, entre otros. Aplican según el caso específico.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mtn-subtitulo">Cómo usar la jerarquía en el análisis</div>
+          <p class="mtn-prose">Cuando dos principios entran en tensión, la jerarquía de la matriz orienta — no determina mecánicamente — cuál tiene precedencia. Los principios del nivel I (no-maleficencia y justicia) tienen mayor peso que los del nivel II (autonomía y beneficencia), porque se relacionan con la obligatoriedad moral y los derechos fundamentales. Sin embargo, esto no significa que los del nivel II sean irrelevantes: el análisis debe mostrar cómo cada alternativa afecta a todos los principios involucrados.</p>
+
+          <div class="mtn-subtitulo">Derechos y deberes correlativos relevantes para el consentimiento</div>
+          <table class="mtn-tabla">
+            <thead>
+              <tr>
+                <th>Principio</th>
+                <th>Derechos del usuario</th>
+                <th>Deberes del profesional</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="principio-tag tag-nomal">No-maleficencia</span></td>
+                <td>A la beneficencia y no-maleficencia · A la información veraz · A la intimidad</td>
+                <td>Confidencialidad · Guardar secreto profesional · Reserva sobre identidad del consultante</td>
+              </tr>
+              <tr>
+                <td><span class="principio-tag tag-just">Justicia</span></td>
+                <td>Protección laboral · Igualdad y equidad</td>
+                <td>Responsabilizarse de la información revelada sin autorización · Estándares morales y legales</td>
+              </tr>
+              <tr>
+                <td><span class="principio-tag tag-auto">Autonomía</span></td>
+                <td>Objeción de conciencia · Libre desarrollo de la personalidad · Libertad de conciencia · Información veraz</td>
+                <td>Protección de los lazos afectivos · Respetar la decisión informada del usuario</td>
+              </tr>
+              <tr>
+                <td><span class="principio-tag tag-bene">Beneficencia</span></td>
+                <td>El ejercicio competente · Beneficencia y no-maleficencia</td>
+                <td>Competencia · Bienestar del usuario · Llevar registro documental de los casos · Formación de los aprendices</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mtn-box mtn-box-info">
+            <strong>Conexión con el consentimiento informado</strong>
+            Cada componente del consentimiento informado tiene un fundamento en esta jerarquía. La descripción detallada de las excepciones de confidencialidad responde a la tensión entre no-maleficencia y autonomía. El asentimiento del menor surge del principio de autonomía. La clasificación de riesgos responde al principio de no-maleficencia. Entender esta conexión convierte el consentimiento de un trámite en un acto ético consciente.
+          </div>
+        </section>
+
+        <!-- RECOMENDACIONES -->
+        <section class="mtn-section" id="mtn-rec">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge rec-badge">Recomendaciones</span>
+            <div>
+              <h2>Para el entorno colombiano</h2>
+              <p>Orientaciones específicas para estudiantes en prácticas</p>
+            </div>
+          </div>
+
+          <div class="mtn-subtitulo">Distingue el tipo de problema antes de aplicar el modelo</div>
+          <p class="mtn-prose">No todo problema en práctica es un dilema ético. Antes de iniciar el análisis MTN, identifica si estás ante una tensión entre principios (dilema ético), una decisión sobre qué técnica usar (dilema técnico), un conflicto entre normas (dilema legal) o una restricción institucional. El MTN es para el primero; los otros requieren herramientas distintas, aunque pueden coexistir en el mismo caso.</p>
+
+          <div class="mtn-subtitulo">Documenta tu razonamiento, no solo tu decisión</div>
+          <p class="mtn-prose">En el contexto de práctica y en una eventual evaluación por parte de un Tribunal de Deontología, la capacidad de explicar por qué tomaste una decisión es tan importante como la decisión misma. El MTN obliga a dejar registro del proceso de razonamiento. Acostúmbrate a documentar: qué hechos consideraste, qué fuentes consultaste, qué alternativas evaluaste y por qué elegiste una sobre otras.</p>
+
+          <div class="mtn-subtitulo">Consulta antes de actuar, no después</div>
+          <p class="mtn-prose">En formación práctica, el reconocimiento de los límites de la propia competencia incluye saber cuándo consultar con el supervisor. El MTN sugiere explícitamente consultar a un par o remitir el caso cuando se considere indicado. En tus prácticas, eso significa llevar el dilema al espacio de supervisión <em>antes</em> de actuar, no después de haber tomado la decisión.</p>
+
+          <div class="mtn-subtitulo">El secreto profesional en Colombia tiene complejidades propias</div>
+          <p class="mtn-prose">La Ley 1090 de 2006 establece el deber de confidencialidad y sus excepciones, pero en Colombia existen tensiones entre distintas normativas en esta materia — por ejemplo, entre el secreto profesional y la obligación de reportar ciertos delitos. Cuando trabajes con casos que involucren riesgo, violencia, menores o situaciones forenses, revisa no solo la Ley 1090 sino también la Ley 1098 de 2006, las doctrinas del Tribunal Nacional Deontológico y, si aplica, el Código de Procedimiento Penal.</p>
+
+          <div class="mtn-subtitulo">Usa el modelo para aprender, no solo para cumplir</div>
+          <p class="mtn-prose">El MTN tiene valor pedagógico en sí mismo: recorrerlo completo en un caso, aunque el caso sea relativamente sencillo, desarrolla la capacidad de razonamiento ético que con el tiempo se vuelve más ágil e intuitiva. No lo uses como lista de chequeo que se llena formalmente. Úsalo como un ejercicio de pensamiento.</p>
+
+          <div class="mtn-box mtn-box-alert">
+            <strong>Advertencia final</strong>
+            El MTN no garantiza decisiones perfectas — no existe el modelo perfecto para la resolución de dilemas éticos. Lo que garantiza es que el proceso de decisión fue organizado, fundamentado y consciente. En ética profesional, la calidad del razonamiento importa tanto como el resultado.
+          </div>
+        </section>
+
+        <!-- REFERENCIAS -->
+        <section class="mtn-section" id="mtn-ref">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge ref-badge">Referencias</span>
+            <div>
+              <h2>Fuentes y enlaces</h2>
+              <p>Documentos de referencia para el análisis ético en psicología colombiana</p>
+            </div>
+          </div>
+
+          <div class="mtn-subtitulo">Modelo y guía de aplicación</div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📄</div>
+            <div class="ref-texto">
+              <strong>Modelo de Tres Niveles (MTN)</strong>
+              <span>Amaya, L. y Berrío-Acosta, G. M. Modelo para el análisis de situaciones dilemáticas en psicología. Ética Psicológica.</span>
+              <a href="https://www.eticapsicologica.org/index.php/documentos/articulos/item/14-modelo-de-tres-niveles" target="_blank">↗ Ver artículo completo</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📄</div>
+            <div class="ref-texto">
+              <strong>Guía de Aplicación del MTN</strong>
+              <span>Documento complementario con preguntas guía para evaluar cada nivel del modelo.</span>
+              <a href="http://eticapsicologica.org/index.php/documentos/articulos/item/11-guia-mtn" target="_blank">↗ Ver guía</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📄</div>
+            <div class="ref-texto">
+              <strong>Dilemas éticos en psicología</strong>
+              <span>Artículo de referencia sobre qué constituye un dilema ético en la práctica profesional.</span>
+              <a href="http://www.eticapsicologica.org/index.php/documentos/articulos/item/7-dilemas-eticos" target="_blank">↗ Ver artículo</a>
+            </div>
+          </div>
+
+          <div class="mtn-subtitulo">Normativa colombiana</div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Ley 1090 de 2006 — Código Deontológico y Bioético del Psicólogo</strong>
+              <span>Reglamenta el ejercicio de la profesión de psicología en Colombia. Fuente principal para intervención clínica y análisis ético.</span>
+              <a href="https://www.eticapsicologica.org/index.php/documentos/lineamientos/item/37-ley-1090-de-2006" target="_blank">↗ Ver texto completo</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Acuerdo 17 de 2019 — Matriz de principios (Colpsic)</strong>
+              <span>Anexo con la jerarquización visual de principios bioéticos y deontológicos para el ejercicio de la psicología en Colombia.</span>
+              <a href="https://www.colpsic.org.co" target="_blank">↗ Colpsic</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Resolución 8430 de 1993 — Investigación en salud</strong>
+              <span>Normas científicas, técnicas y administrativas para la investigación en salud. Define categorías de riesgo y requisitos de consentimiento en investigación.</span>
+              <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/RESOLUCION-8430-DE-1993.PDF" target="_blank">↗ Ver resolución</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Ley 1098 de 2006 — Código de Infancia y Adolescencia</strong>
+              <span>Aplica cuando el trabajo involucra menores de edad. Regula el consentimiento del representante legal y el asentimiento del menor.</span>
+              <a href="https://www.icbf.gov.co/cargues/avance/docs/ley_1098_2006.htm" target="_blank">↗ Ver ley</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Ley 1581 de 2012 — Protección de Datos Personales</strong>
+              <span>Regula el tratamiento de datos personales. Obligatoria cuando se recopilan, almacenan o procesan datos en investigación e intervención.</span>
+              <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_blank">↗ Ver ley</a>
+            </div>
+          </div>
+
+          <div class="mtn-subtitulo">Declaraciones internacionales</div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🌐</div>
+            <div class="ref-texto">
+              <strong>Declaración Universal de Principios Éticos para Psicólogas y Psicólogos (IUPsyS)</strong>
+              <span>Marco internacional de referencia para la deontología psicológica. Complementa los códigos locales.</span>
+              <a href="https://www.eticapsicologica.org/index.php/documentos/lineamientos/item/33-declaracion-universal-de-principios-eticos-para-psicologas-y-psicologos" target="_blank">↗ Ver declaración</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🌐</div>
+            <div class="ref-texto">
+              <strong>Declaración Universal sobre Bioética y Derechos Humanos (UNESCO, 2005)</strong>
+              <span>Marco internacional que articula bioética y derechos humanos. Citada en el Manual Deontológico y Bioético del Psicólogo.</span>
+              <a href="https://www.unesco.org/en/legal-affairs/universal-declaration-bioethics-and-human-rights" target="_blank">↗ Ver declaración</a>
+            </div>
+          </div>
+
+          <div class="mtn-subtitulo">Recursos adicionales</div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🔗</div>
+            <div class="ref-texto">
+              <strong>Casos para análisis ético — Ética Psicológica</strong>
+              <span>Banco de casos para practicar el análisis con el MTN.</span>
+              <a href="https://www.eticapsicologica.org/index.php/recursos/casos" target="_blank">↗ Ver casos</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🔗</div>
+            <div class="ref-texto">
+              <strong>Glosario de ética psicológica</strong>
+              <span>Definiciones de términos clave útiles para la clarificación conceptual del Nivel 1 del MTN.</span>
+              <a href="https://www.eticapsicologica.org/index.php/recursos/glosario" target="_blank">↗ Ver glosario</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🔗</div>
+            <div class="ref-texto">
+              <strong>Tribunal Nacional Deontológico — Colpsic</strong>
+              <span>Instancia de supervisión deontológica de la psicología en Colombia. Fuente de jurisprudencia y doctrinas relevantes.</span>
+              <a href="https://www.colpsic.org.co" target="_blank">↗ Ver Colpsic</a>
+            </div>
+          </div>
+
+        </section>
+      </div><!-- fin mtn-content -->
+    </div><!-- fin mtn-layout -->
+  </div><!-- fin mtn-panel -->
+
+  <!-- ══════════ MODELO DE TRES NIVELES ══════════ -->
+  <div id="mtn-panel">
+
+    <div class="mtn-layout">
+
+      <!-- MENÚ LATERAL -->
+      <nav class="mtn-nav" id="mtn-nav">
+        <div class="mtn-nav-title">Contenido</div>
+        <a class="mtn-nav-item active" href="#mtn-intro" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">·</span> Introducción
+        </a>
+        <a class="mtn-nav-item" href="#mtn-n1" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">1</span> Sustanciación
+        </a>
+        <a class="mtn-nav-item" href="#mtn-n2" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">2</span> Fundamentación
+        </a>
+        <a class="mtn-nav-item" href="#mtn-n3" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">3</span> Análisis y proposición
+        </a>
+        <a class="mtn-nav-item" href="#mtn-matriz" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">⊞</span> Matriz de principios
+        </a>
+        <a class="mtn-nav-item" href="#mtn-rec" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">✦</span> Recomendaciones
+        </a>
+        <a class="mtn-nav-item" href="#mtn-ref" onclick="mtnNav(this); return false;">
+          <span class="mtn-nav-num">↗</span> Referencias
+        </a>
+      </nav>
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <div class="mtn-content">
+
+        <!-- INTRO -->
+        <section class="mtn-section" id="mtn-intro">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge intro-badge">Presentación</span>
+            <div>
+              <h2>El Modelo de Tres Niveles (MTN)</h2>
+              <p>Amaya y Berrío-Acosta · eticapsicologica.org</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">El Modelo de Tres Niveles (MTN) es una guía estructurada para analizar situaciones dilemáticas en la práctica psicológica. Fue elaborado con el propósito de ofrecer a los psicólogos colombianos una ruta de análisis aplicable tanto antes de enfrentar un caso (<em>pre-hoc</em>) como después de una intervención iniciada o finalizada (<em>post-hoc</em>), para efectos académicos o de evaluación.</p>
+
+          <p class="mtn-prose">El modelo no es un protocolo rígido. No todos sus elementos son necesarios o pertinentes en cada situación. El profesional puede seleccionar los aspectos relevantes para el caso que analiza. Sin embargo, en el contexto de formación práctica se recomienda recorrerlo completo: el ejercicio de revisar cada componente evita que se pasen por alto aspectos que la experiencia aún no hace visibles de forma automática.</p>
+
+          <div class="mtn-box mtn-box-alert">
+            <strong>Advertencia de partida</strong>
+            Los errores en ética profesional se producen con más frecuencia en dos polos del aprendizaje: cuando hay impericia, y cuando con la experiencia y formación acumuladas se abusa de la confianza. El MTN es una herramienta que te protege principalmente en el primero de esos polos.
+          </div>
+
+          <p class="mtn-prose">El modelo se organiza en tres niveles que funcionan en secuencia: <strong>Sustanciación</strong> (organizar los hechos y formular el dilema), <strong>Fundamentación</strong> (identificar las fuentes éticas y normativas que orientan el análisis) y <strong>Análisis y Proposición</strong> (deliberar entre alternativas y construir un juicio fundado). Cada nivel tiene subniveles con preguntas guía específicas.</p>
+
+          <div class="mtn-box mtn-box-info">
+            <strong>Punto de partida esencial</strong>
+            Antes de aplicar el MTN, verifica que realmente estás ante un dilema ético. Un dilema ético implica conflicto entre principios. Una decisión técnica (¿qué intervención es más eficaz?) no es un dilema ético aunque sea difícil: ambas opciones pueden estar regidas por el mismo principio. El MTN es para el conflicto de principios, no para la elección técnica.
+          </div>
+        </section>
+
+        <!-- NIVEL 1 -->
+        <section class="mtn-section" id="mtn-n1">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge">Nivel 1</span>
+            <div>
+              <h2>Sustanciación de los hechos</h2>
+              <p>Ordenar antes de opinar</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">El primer nivel tiene un propósito que suele subestimarse en la formación: <strong>no saltar a la conclusión antes de tener los hechos claros</strong>. Su función es organizar lo que realmente ocurrió, separándolo de interpretaciones, suposiciones y narrativas elaboradas. Como producto de este nivel, el profesional debe poder diferenciar si se encuentra ante un dilema ético o ante un conflicto legal, técnico o disciplinar.</p>
+
+          <div class="mtn-subtitulo">1.1 Clarificación de hechos, circunstancias y contexto</div>
+          <p class="mtn-prose">Identifica las narraciones del caso y separa los hechos demostrables de las elaboraciones subjetivas. En psicología la narración de un paciente tiene valor de verdad subjetiva; en un análisis ético-legal, la verdad se apoya en la demostración del hecho ocurrido. Esta distinción importa especialmente en casos que cruzan con lo forense o lo judicial.</p>
+          <p class="mtn-prose">Describe las circunstancias y el contexto: quiénes participan, cuándo y dónde ocurren los hechos, cuáles son las características psicosociales relevantes (estructura familiar, red de apoyo, competencia del usuario para tomar decisiones, calidad de la relación profesional-usuario). Solo incluye los elementos pertinentes para el caso específico.</p>
+
+          <div class="mtn-box mtn-box-tip">
+            <strong>Recomendación práctica</strong>
+            Analiza también las posibles relaciones duales. Una relación dual (ser simultáneamente terapeuta y supervisor, o conocer previamente al consultante en otro rol) puede condicionar el análisis desde el inicio sin que lo notes. Identifícala antes de continuar.
+          </div>
+
+          <div class="mtn-subtitulo">1.2 Clarificación de conceptos</div>
+          <p class="mtn-prose">Cuando un caso involucra varias disciplinas, los mismos términos pueden significar cosas distintas. El concepto "abuso", por ejemplo, tiene sentidos concretos y distintos en psicología, en derecho y en el trabajo social. Define explícitamente qué sentido usarás en tu análisis e indica las fuentes que consultaste para esa definición.</p>
+
+          <div class="mtn-subtitulo">1.3 Formulación del dilema</div>
+          <p class="mtn-prose">Plantea el dilema en forma de pregunta con dos o más opciones claras: <em>¿actuar de la forma A o de la forma B?</em> Esta formulación obliga a hacer explícito el conflicto de principios. Identifica cuáles principios están enfrentados y cómo se vería afectado cada uno si privilegias el otro.</p>
+
+          <div class="mtn-box mtn-box-alert">
+            <strong>Error frecuente en este nivel</strong>
+            Confundir un dilema técnico con un dilema ético. Si las dos alternativas que analizas están regidas por el mismo principio (por ejemplo, ambas buscan el bienestar del usuario pero difieren en su eficacia), estás ante una decisión técnico-profesional, no ante un dilema ético. El MTN no aplica de la misma manera en ese caso.
+          </div>
+        </section>
+
+        <!-- NIVEL 2 -->
+        <section class="mtn-section" id="mtn-n2">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge">Nivel 2</span>
+            <div>
+              <h2>Fundamentación</h2>
+              <p>Consultar las fuentes, no solo la intuición</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">Una vez tienes el dilema formulado, necesitas respaldarte en fuentes. Este nivel es donde más frecuentemente los estudiantes en práctica cometen el error de tomar decisiones apoyadas solo en el sentido común o en lo que recuerdan del curso, sin consultar los textos. El MTN exige hacer explícita esa consulta y señalar qué artículos o secciones concretas orientan la resolución del caso.</p>
+
+          <div class="mtn-subtitulo">2.1 Fuentes éticas</div>
+          <p class="mtn-prose">Son los códigos y declaraciones que orientan la profesión. En el contexto colombiano la referencia central es la <strong>Ley 1090 de 2006</strong> y el <strong>Manual Deontológico y Bioético del Psicólogo</strong>. A nivel internacional se consultan la Declaración Universal de Principios Éticos para Psicólogas y Psicólogos (IUPsyS) y la Declaración Universal sobre Bioética y Derechos Humanos de la UNESCO. También son relevantes las doctrinas y jurisprudencias del Tribunal Nacional Deontológico de Psicología.</p>
+          <p class="mtn-prose">Sé explícito: no basta mencionar la fuente. Indica cuál artículo o sección concreta aplica y de qué manera contribuye a la resolución del dilema específico.</p>
+
+          <div class="mtn-subtitulo">2.2 Fuentes normativas</div>
+          <p class="mtn-prose">Son las leyes vigentes. Además de la Ley 1090, son frecuentemente relevantes: la Ley 1098 de 2006 (infancia y adolescencia), la Resolución 8430 de 1993 (investigación en salud), la Ley 1581 de 2012 (protección de datos), la Ley 1164 de 2007 (talento humano en salud) y la Resolución 1995 de 1999 (historia clínica).</p>
+
+          <div class="mtn-box mtn-box-alert">
+            <strong>Tensión frecuente en Colombia</strong>
+            En algunos casos encontrarás posturas contrastantes dentro de la misma normatividad colombiana, como ocurre con el secreto profesional. Cuando eso suceda, no lo eludas: nómbralo, analiza la tensión y fundamenta tu posición.
+          </div>
+
+          <div class="mtn-subtitulo">2.3 Fuentes de referencia</div>
+          <p class="mtn-prose">Artículos especializados, libros profesionales o casos similares documentados. Su propósito es aclarar la situación y poder avanzar al siguiente nivel con mayor base conceptual. En el contexto de formación, esta es la dimensión que más se asemeja al trabajo académico habitual: buscar antecedentes que iluminen el caso desde la literatura especializada.</p>
+        </section>
+
+        <!-- NIVEL 3 -->
+        <section class="mtn-section" id="mtn-n3">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge">Nivel 3</span>
+            <div>
+              <h2>Análisis y proposición</h2>
+              <p>Decidir con fundamento</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">Este es el nivel donde articulas todo lo anterior para proponer una solución. Es el nivel evaluado en el contexto académico: no se evalúa la "respuesta correcta", sino la calidad del razonamiento que conduce a ella. Tiene tres momentos secuenciales.</p>
+
+          <div class="mtn-subtitulo">3.1 Juicio de principios</div>
+          <p class="mtn-prose">Aquí pesas los principios en conflicto identificados en el Nivel 1 a la luz de las fuentes consultadas en el Nivel 2. En el contexto colombiano, la matriz del <strong>Manual Deontológico y Bioético del Psicólogo</strong> (Acuerdo 17 de 2019, Colpsic) permite organizar jerárquicamente los principios: la dignidad humana como nivel protomoral, el principio de responsabilidad como principio fundamental, y los cuatro principios de la bioética liberal (no maleficencia, justicia, autonomía, beneficencia) como nivel intermedio.</p>
+          <p class="mtn-prose">Un criterio ampliamente reconocido en la práctica internacional establece que la <strong>no maleficencia</strong> representa la obligación mínima en cualquier prestación de servicios psicológicos (<em>primum non nocere</em>). Este principio suele requerir la consideración de la doctrina del doble efecto cuando una acción produce simultáneamente efectos beneficiosos y perjudiciales.</p>
+
+          <div class="mtn-subtitulo">3.2 Valoración de alternativas</div>
+          <p class="mtn-prose">No te quedes con la primera solución que se te ocurra. Los dilemas frecuentemente se presentan como una disyuntiva entre dos opciones, pero esa encrucijada suele ser reduccionista. El MTN propone buscar activamente <strong>"terceras vías"</strong>: alternativas que un análisis más detallado de la situación puede hacer visibles.</p>
+          <p class="mtn-prose">Ejemplo: si un adolescente te comparte una intención de riesgo, la disyuntiva aparente entre comunicarlo o no comunicarlo puede resolverse de otra forma — acompañarlo para que él mismo llegue a pedir ayuda a sus padres. Para cada alternativa analiza: los riesgos éticos que implica, cómo quedan implicados los principios en juego, y si te sientes cómodo o no con el nivel de riesgo que asumes.</p>
+
+          <div class="mtn-box mtn-box-tip">
+            <strong>Criterio para evaluar alternativas</strong>
+            Reconoce los límites de tu competencia y actúa en consecuencia. En formación práctica, eso significa consultar con tu supervisor antes de actuar, no después. La consulta con pares o superiores no es señal de inseguridad: es un componente explícito del modelo.
+          </div>
+
+          <div class="mtn-subtitulo">3.3 Juicio fundado</div>
+          <p class="mtn-prose">Esta es la etapa final. Construye una posición resolutiva: indica las alternativas que consideras éticamente válidas, escribe tu decisión final y explícala ampliamente, fundamentándola en los artículos y contenidos de los códigos éticos y normativos pertinentes. El análisis puede incluir recomendaciones de evaluación posterior y señalar aspectos que podrían clarificarse más adelante.</p>
+
+          <div class="mtn-box mtn-box-info">
+            <strong>Recuerda</strong>
+            Un juicio fundado no es sinónimo de certeza absoluta. En ética profesional, la deliberación cuidadosa y documentada es en sí misma un ejercicio de responsabilidad, aunque las respuestas no siempre sean definitivas.
+          </div>
+        </section>
+
+        <!-- MATRIZ -->
+        <section class="mtn-section" id="mtn-matriz">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge matriz-badge">Colpsic</span>
+            <div>
+              <h2>Matriz de principios</h2>
+              <p>Acuerdo N° 17 de 2019 · Colpsic</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">La matriz del Manual Deontológico y Bioético del Psicólogo (Acuerdo 17 de 2019, Colpsic) es la herramienta colombiana que permite organizar jerárquicamente los principios éticos al momento del juicio de principios en el Nivel 3 del MTN. Articula los principios provenientes de las Leyes 1090 de 2006 y 1164 de 2007, siguiendo una versión propia de la jerarquización de Diego Gracia. Su estructura es la siguiente:</p>
+
+          <table class="mtn-tabla">
+            <tr>
+              <th colspan="2">Nivel protomoral — La Dignidad Humana</th>
+            </tr>
+            <tr>
+              <td colspan="2" style="background:#edf0f7; font-weight:600; text-align:center; font-size:0.82rem;">Principio de Responsabilidad (Principio fundamental)</td>
+            </tr>
+            <tr>
+              <th>Grupo I — Derechos y obligatoriedad moral</th>
+              <th>Grupo II — Libre desarrollo y elección ética</th>
+            </tr>
+            <tr>
+              <td><span class="principio-tag tag-nomal">No-maleficencia</span> <span class="principio-tag tag-just">Justicia</span></td>
+              <td><span class="principio-tag tag-auto">Autonomía</span> <span class="principio-tag tag-bene">Beneficencia</span></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align:center; font-size:0.78rem; color:var(--gris-o);">Principios subsidiarios de la bioética personalista y otras normativas</td>
+            </tr>
+          </table>
+
+          <div class="mtn-subtitulo">¿Cómo leer esta jerarquía en el análisis de un dilema?</div>
+          <p class="mtn-prose">La jerarquía no significa que los principios del Grupo II sean menos importantes, sino que la estructura permite orientar el análisis cuando dos principios entran en conflicto. Los principios del Grupo I (no-maleficencia y justicia) corresponden a los derechos de las personas y a las obligaciones morales del profesional. Los del Grupo II (autonomía y beneficencia) corresponden al libre desarrollo y a la elección ética.</p>
+          <p class="mtn-prose">Cuando el conflicto se da entre un principio del Grupo I y uno del Grupo II, la matriz sugiere que los del Grupo I tienen mayor peso. Por ejemplo: si respetar la autonomía del usuario implica un daño severo (violación de la no-maleficencia), el principio de no maleficencia orienta la decisión. Esta jerarquía no es automática ni mecánica: requiere análisis del caso concreto.</p>
+
+          <table class="mtn-tabla">
+            <tr>
+              <th>Principio</th>
+              <th>Derechos asociados</th>
+              <th>Deberes correlativos</th>
+              <th>Faltas relacionadas</th>
+            </tr>
+            <tr>
+              <td><span class="principio-tag tag-nomal">No-maleficencia</span></td>
+              <td>Al secreto · Al buen nombre · A la confidencialidad · A la información veraz · A la intimidad</td>
+              <td>Confidencialidad · Guardar secreto profesional · Reserva sobre identidad de consultantes · Estándares morales y legales</td>
+              <td>Estándares morales · Lealtad · Secreto profesional</td>
+            </tr>
+            <tr>
+              <td><span class="principio-tag tag-just">Justicia</span></td>
+              <td>A la igualdad y equidad · Protección laboral · Ejercicio competente</td>
+              <td>Protección de lazos afectivos · Responsabilizarse de información revelada sin autorización · Promoción de una cultura ética</td>
+              <td>Colaboración con la justicia · Prudencia · Solidaridad</td>
+            </tr>
+            <tr>
+              <td><span class="principio-tag tag-auto">Autonomía</span></td>
+              <td>Objeción de conciencia · Libre desarrollo de la personalidad · Libertad de conciencia · Libertad de enseñanza e investigación</td>
+              <td>Protección de lazos afectivos · Investigación con participantes humanos · Evaluación de técnicas</td>
+              <td>Secreto profesional</td>
+            </tr>
+            <tr>
+              <td><span class="principio-tag tag-bene">Beneficencia</span></td>
+              <td>Ejercicio competente · Beneficencia y no-maleficencia</td>
+              <td>Competencia · Bienestar del usuario · Llevar registro documental · Formación de aprendices · Promoción de una cultura ética</td>
+              <td>Competencia profesional · Responsabilidad profesional</td>
+            </tr>
+          </table>
+
+          <div class="mtn-box mtn-box-info">
+            <strong>Principios subsidiarios relevantes</strong>
+            La matriz también incorpora principios de la bioética personalista que complementan el análisis: lealtad y fidelidad, veracidad, integridad, solidaridad, totalidad, doble efecto y conflicto de deberes o de valores. Estos principios entran en juego especialmente cuando la resolución del dilema produce efectos simultáneos beneficiosos y perjudiciales (doble efecto), o cuando los deberes del profesional entran en colisión entre sí.
+          </div>
+        </section>
+
+        <!-- RECOMENDACIONES -->
+        <section class="mtn-section" id="mtn-rec">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge rec-badge">Práctica</span>
+            <div>
+              <h2>Recomendaciones para el entorno colombiano</h2>
+              <p>Orientaciones para estudiantes en prácticas</p>
+            </div>
+          </div>
+
+          <p class="mtn-prose">Las siguientes recomendaciones surgen de la aplicación del MTN en contextos de formación práctica en psicología en Colombia. No son sustituto del modelo: son complementos para usarlo con más eficacia.</p>
+
+          <div class="mtn-subtitulo">Sobre la identificación del dilema</div>
+          <p class="mtn-prose"><strong>No confundas dilema ético con dilema técnico.</strong> Si te preguntas qué intervención es más efectiva, estás ante una decisión técnica. Si te preguntas cuál de dos principios debe prevalecer, estás ante un dilema ético. El MTN es para el segundo tipo. Esta distinción parece evidente pero en la práctica es la fuente más frecuente de análisis mal orientados.</p>
+          <p class="mtn-prose"><strong>Formula el dilema antes de buscar la solución.</strong> El Nivel 1 existe precisamente para esto. Un dilema mal formulado produce análisis que resuelven el problema equivocado. Tómate el tiempo de escribir la pregunta con claridad: ¿A o B? ¿Qué principio se sacrifica en cada caso?</p>
+
+          <div class="mtn-subtitulo">Sobre el uso de las fuentes</div>
+          <p class="mtn-prose"><strong>Cita artículos específicos, no solo normas.</strong> Mencionar "la Ley 1090" sin indicar qué artículo y cómo aplica al caso no cumple la función del Nivel 2. El Manual Deontológico y Bioético del Psicólogo, las doctrinas del Tribunal Nacional Deontológico y la jurisprudencia de Colpsic son fuentes disponibles y frecuentemente subusadas en la formación.</p>
+          <p class="mtn-prose"><strong>Nombra las tensiones normativas, no las evadas.</strong> En Colombia existen tensiones reales dentro de la normatividad, especialmente en el manejo del secreto profesional. Identificarlas y analizarlas es parte del ejercicio, no un problema a ocultar.</p>
+
+          <div class="mtn-subtitulo">Sobre la deliberación y la decisión</div>
+          <p class="mtn-prose"><strong>Busca la tercera vía antes de decidir.</strong> Cuando el caso se presenta como una disyuntiva inconveniente en sus dos extremos, dedica tiempo a explorar si existe una alternativa que el análisis inicial no había visibilizado. Esta es una de las contribuciones más valiosas del MTN frente a modelos más mecánicos.</p>
+          <p class="mtn-prose"><strong>Reconoce los límites de tu competencia y consúlta.</strong> En formación práctica, la consulta con el supervisor antes de actuar es un componente explícito del modelo, no una señal de inseguridad. La supervisión es parte de la cadena de responsabilidad ética, no solo pedagógica.</p>
+          <p class="mtn-prose"><strong>Documenta tu razonamiento.</strong> En el contexto de práctica, la capacidad de explicar por qué tomaste una decisión es tan importante como la decisión misma. El MTN te obliga a dejar registro de ese razonamiento, lo cual es también una práctica de protección profesional.</p>
+
+          <div class="mtn-box mtn-box-tip">
+            <strong>Con experiencia</strong>
+            El propio modelo advierte que cuando ya tienes experiencia en su uso te será más fácil seleccionar únicamente los componentes requeridos para cada caso específico. En la formación inicial, recorrerlo completo es la mejor estrategia.
+          </div>
+        </section>
+
+        <!-- REFERENCIAS -->
+        <section class="mtn-section" id="mtn-ref">
+          <div class="mtn-section-header">
+            <span class="mtn-nivel-badge ref-badge">Fuentes</span>
+            <div>
+              <h2>Referencias y recursos</h2>
+              <p>Fuentes para profundizar y consultar en línea</p>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📄</div>
+            <div class="ref-texto">
+              <strong>Modelo de Tres Niveles (MTN)</strong>
+              <span>Amaya, L. y Berrío-Acosta, G. M. Modelo de Tres Niveles para el análisis de situaciones dilemáticas en psicología. Ética Psicológica.</span>
+              <a href="https://www.eticapsicologica.org/index.php/documentos/articulos/item/14-modelo-de-tres-niveles" target="_blank">↗ Consultar artículo completo</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📄</div>
+            <div class="ref-texto">
+              <strong>Guía de Aplicación del MTN</strong>
+              <span>Documento complementario con preguntas guía para cada nivel del modelo.</span>
+              <a href="http://eticapsicologica.org/index.php/documentos/articulos/item/11-guia-mtn" target="_blank">↗ Consultar guía de aplicación</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📄</div>
+            <div class="ref-texto">
+              <strong>Dilemas éticos en psicología</strong>
+              <span>Artículo de referencia sobre la naturaleza y tipos de dilemas éticos en la práctica profesional.</span>
+              <a href="http://www.eticapsicologica.org/index.php/documentos/articulos/item/7-dilemas-eticos" target="_blank">↗ Consultar artículo</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Ley 1090 de 2006 — Código Deontológico y Bioético del Psicólogo</strong>
+              <span>Regula el ejercicio de la profesión de psicología en Colombia. Referencia central para el Nivel 2 del MTN.</span>
+              <a href="https://www.eticapsicologica.org/index.php/documentos/lineamientos/item/37-ley-1090-de-2006" target="_blank">↗ Consultar texto completo</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">⚖️</div>
+            <div class="ref-texto">
+              <strong>Matriz de principios — Acuerdo N° 17 de 2019</strong>
+              <span>Colpsic. Anexo al Manual Deontológico y Bioético del Psicólogo. Jerarquización de principios bioéticos y deontológicos.</span>
+              <a href="#" target="_blank">↗ [Enlace por definir]</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🌐</div>
+            <div class="ref-texto">
+              <strong>Declaración Universal de Principios Éticos para Psicólogas y Psicólogos</strong>
+              <span>IUPsyS. Principios normativos de alcance internacional para la deontología psicológica.</span>
+              <a href="https://www.eticapsicologica.org/index.php/documentos/lineamientos/item/33-declaracion-universal-de-principios-eticos-para-psicologas-y-psicologos" target="_blank">↗ Consultar declaración</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">🌐</div>
+            <div class="ref-texto">
+              <strong>Declaración Universal sobre Bioética y Derechos Humanos</strong>
+              <span>UNESCO, 2005. Marco internacional para el análisis bioético en ciencias de la salud.</span>
+              <a href="https://www.unesco.org/es/legal-affairs/universal-declaration-bioethics-and-human-rights" target="_blank">↗ Consultar declaración</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📚</div>
+            <div class="ref-texto">
+              <strong>Casos para análisis ético</strong>
+              <span>Colección de casos para aplicación del MTN disponible en el portal de Ética Psicológica.</span>
+              <a href="https://www.eticapsicologica.org/index.php/recursos/casos" target="_blank">↗ Consultar casos</a>
+            </div>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-ico">📚</div>
+            <div class="ref-texto">
+              <strong>Behnke, S. (2009)</strong>
+              <span>Ethics from a developmental perspective. <em>Ethics Rounds, 40</em>(1), p. 68. Citado en el MTN en relación con los errores frecuentes según el nivel de experiencia del profesional.</span>
+              <a href="#" target="_blank">↗ [Enlace por definir]</a>
+            </div>
+          </div>
+
+        </section>
+
+      </div><!-- fin mtn-content -->
+    </div><!-- fin mtn-layout -->
+  </div><!-- fin mtn-panel -->
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span>Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026</span><br>
+  Ética Psicológica · Recurso de apoyo para estudiantes en prácticas
+</footer>
+
+<script>
+let tipoActual = null;
+
+function setTipo(tipo) {
+  // Reset
+  document.getElementById('empty-state').style.display = 'none';
+  document.querySelectorAll('.intro-card, .acord, .checklist-wrap').forEach(el => el.classList.remove('visible'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.className = 'tab-btn');
+  document.getElementById('mtn-panel').classList.remove('visible');
+
+  tipoActual = tipo;
+
+  if (tipo === 'mtn') {
+    document.getElementById('tab-mtn').classList.add('active-mtn');
+    document.getElementById('mtn-panel').classList.add('visible');
+    document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    initMtnScroll();
+    return;
+  }
+
+  const tabMap = { clinica: 'active-clinica', psico: 'active-psico', inv: 'active-inv' };
+  document.getElementById('tab-' + tipo).classList.add(tabMap[tipo]);
+  document.getElementById('intro-' + tipo).classList.add('visible');
+  document.querySelectorAll('.acord.' + tipo).forEach(el => el.classList.add('visible'));
+
+  const clMap = { clinica: 'cl-checklist', psico: 'ps-checklist', inv: 'in-checklist' };
+  document.getElementById(clMap[tipo]).classList.add('visible');
+
+  const primero = document.querySelector('.acord.' + tipo + ' .acord-body');
+  const chevronPrimero = document.querySelector('.acord.' + tipo + ' .chevron-icon');
+  if (primero) { primero.classList.add('open'); chevronPrimero.classList.add('open'); }
+
+  actualizarProgreso(tipo);
+  document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron-icon');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+function actualizarProgreso(tipo) {
+  const mapId = { clinica: 'cl-checklist', psico: 'ps-checklist', inv: 'in-checklist' };
+  const wrap = document.getElementById(mapId[tipo]);
+  const todos = wrap.querySelectorAll('input[type="checkbox"]');
+  const marcados = wrap.querySelectorAll('input[type="checkbox"]:checked');
+  const total = todos.length;
+  const hecho = marcados.length;
+  const pct = total > 0 ? Math.round((hecho / total) * 100) : 0;
+  document.getElementById('prog-' + tipo).style.width = pct + '%';
+  document.getElementById('prog-texto-' + tipo).textContent = hecho + ' / ' + total;
+  todos.forEach(cb => {
+    const item = cb.closest('.check-item');
+    if (cb.checked) item.classList.add('checked');
+    else item.classList.remove('checked');
+  });
+}
+
+function imprimir(tipo) {
+  document.body.classList.remove('print-clinica', 'print-psico', 'print-inv');
+  document.body.classList.add('print-' + tipo);
+  window.print();
+  setTimeout(() => { document.body.classList.remove('print-clinica', 'print-psico', 'print-inv'); }, 1000);
+}
+
+// MTN: navegación lateral
+function mtnNav(el) {
+  el.preventDefault ? el.preventDefault() : null;
+  const href = el.getAttribute('href');
+  const target = document.querySelector(href);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  document.querySelectorAll('.mtn-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function initMtnScroll() {
+  const sections = document.querySelectorAll('.mtn-section');
+  const navItems = document.querySelectorAll('.mtn-nav-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.getAttribute('href') === '#' + id) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+}
+</script>
+</body>
+</html>
