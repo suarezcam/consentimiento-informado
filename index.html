@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Consentimientos Informados · Ética Psicológica</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   VARIABLES Y RESET
+═══════════════════════════════════════════ */
+:root {
+  --verde:       #273C2C;
+  --gris-o:      #626868;
+  --gris-m:      #939196;
+  --lila:        #D3C1D2;
+  --rosa:        #FFE2FE;
+  --blanco:      #FDFAF9;
+  --fondo:       #F6F2F5;
+  --texto:       #1C1C1C;
+  --texto-suave: #5a5858;
+
+  /* por tipo */
+  --c-clinica:       #273C2C;
+  --c-clinica-bg:    #edf3ef;
+  --c-clinica-borde: #5a8a6a;
+
+  --c-psico:         #3d2e3c;
+  --c-psico-bg:      #f3eef3;
+  --c-psico-borde:   #9a7099;
+
+  --c-inv:           #4a3520;
+  --c-inv-bg:        #f5efe8;
+  --c-inv-borde:     #a07845;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+header {
+  background: var(--verde);
+  color: var(--blanco);
+  padding: 2.8rem 3rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(211,193,210,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 30%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(255,226,254,0.10) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.header-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lila);
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--blanco);
+  position: relative;
+  max-width: 520px;
+}
+
+header h1 em {
+  font-style: italic;
+  color: var(--rosa);
+}
+
+.header-sub {
+  margin-top: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.72);
+  max-width: 480px;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════
+   SELECTOR DE TIPO
+═══════════════════════════════════════════ */
+.selector-wrap {
+  background: var(--verde);
+  padding: 0 3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.selector-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.selector-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.6rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  border-bottom: 3px solid transparent;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-btn:hover { color: rgba(255,255,255,0.85); }
+
+.tab-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.tab-btn.active-clinica {
+  color: #a8d8b8;
+  border-bottom-color: #a8d8b8;
+}
+.tab-btn.active-clinica .tab-dot { opacity: 1; background: #a8d8b8; }
+
+.tab-btn.active-psico {
+  color: var(--rosa);
+  border-bottom-color: var(--rosa);
+}
+.tab-btn.active-psico .tab-dot { opacity: 1; background: var(--rosa); }
+
+.tab-btn.active-inv {
+  color: #f0c882;
+  border-bottom-color: #f0c882;
+}
+.tab-btn.active-inv .tab-dot { opacity: 1; background: #f0c882; }
+
+/* ═══════════════════════════════════════════
+   MAIN
+═══════════════════════════════════════════ */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+}
+
+/* ═══════════════════════════════════════════
+   ESTADO VACÍO
+═══════════════════════════════════════════ */
+#empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  animation: fadeUp 0.4s ease;
+}
+
+.empty-icon {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.3;
+}
+
+#empty-state h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gris-o);
+  margin-bottom: 0.5rem;
+}
+
+#empty-state p {
+  font-size: 0.88rem;
+  color: var(--gris-m);
+  max-width: 320px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   PANEL INTRO
+═══════════════════════════════════════════ */
+.intro-card {
+  display: none;
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 1.4rem;
+  gap: 1.2rem;
+  align-items: flex-start;
+  animation: fadeUp 0.35s ease;
+  border: 1px solid transparent;
+}
+.intro-card.visible { display: flex; }
+
+.intro-card.clinica {
+  background: var(--c-clinica-bg);
+  border-color: rgba(90,138,106,0.3);
+}
+.intro-card.psico {
+  background: var(--c-psico-bg);
+  border-color: rgba(154,112,153,0.3);
+}
+.intro-card.inv {
+  background: var(--c-inv-bg);
+  border-color: rgba(160,120,69,0.3);
+}
+
+.intro-emoji { font-size: 1.9rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+.intro-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.intro-card.clinica h2 { color: var(--c-clinica); }
+.intro-card.psico h2   { color: var(--c-psico); }
+.intro-card.inv h2     { color: var(--c-inv); }
+
+.intro-card p {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--texto-suave);
+}
+
+/* ═══════════════════════════════════════════
+   ACORDEÓN
+═══════════════════════════════════════════ */
+.acord {
+  display: none;
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 12px;
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  animation: fadeUp 0.3s ease;
+}
+.acord.visible { display: block; }
+
+.acord-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+  gap: 0.8rem;
+}
+
+.acord-head:hover { background: var(--fondo); }
+
+.acord-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.acord-ico {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.clinica .acord-ico { background: var(--c-clinica-bg); }
+.psico .acord-ico   { background: var(--c-psico-bg); }
+.inv .acord-ico     { background: var(--c-inv-bg); }
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.b-oblig    { background: #fee2e2; color: #991b1b; }
+.b-recom    { background: #fef9c3; color: #7a4a00; }
+.b-cond     { background: #dbeafe; color: #1e3a8a; }
+
+.chevron-icon {
+  color: var(--gris-m);
+  font-size: 0.75rem;
+  transition: transform 0.28s ease;
+  flex-shrink: 0;
+}
+.chevron-icon.open { transform: rotate(180deg); }
+
+.acord-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s ease, padding 0.28s ease;
+  padding: 0 1.4rem;
+}
+.acord-body.open {
+  max-height: 2400px;
+  padding: 0.2rem 1.4rem 1.4rem;
+}
+
+/* ═══════════════════════════════════════════
+   CONTENIDO INTERNO
+═══════════════════════════════════════════ */
+.bloque { margin-bottom: 1.1rem; }
+.bloque:last-child { margin-bottom: 0; }
+
+.bloque-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gris-m);
+  margin-bottom: 0.35rem;
+}
+
+.bloque-texto {
+  font-size: 0.86rem;
+  line-height: 1.68;
+  color: var(--texto);
+}
+
+.divider {
+  height: 1px;
+  background: #ede8ec;
+  margin: 1rem 0;
+}
+
+/* NORMAS */
+.norma {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ede8ec;
+}
+.norma:last-child { border-bottom: none; }
+
+.ntag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.clinica .ntag { background: var(--c-clinica-bg); color: var(--c-clinica); }
+.psico .ntag   { background: var(--c-psico-bg);   color: var(--c-psico); }
+.inv .ntag     { background: var(--c-inv-bg);      color: var(--c-inv); }
+
+.norma-info { font-size: 0.84rem; line-height: 1.55; }
+.norma-info strong { display: block; margin-bottom: 0.12rem; font-weight: 600; }
+.norma-info span { color: var(--texto-suave); font-size: 0.8rem; }
+
+/* ERRORES */
+.error-item {
+  display: flex; gap: 0.8rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ede8ec;
+  align-items: flex-start;
+}
+.error-item:last-child { border-bottom: none; }
+
+.enum {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+
+.error-texto { font-size: 0.84rem; line-height: 1.55; }
+.error-texto strong { display: block; margin-bottom: 0.12rem; font-weight: 600; }
+.error-texto span { color: var(--texto-suave); }
+
+/* EJEMPLOS */
+.ej-box {
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  font-size: 0.83rem;
+  line-height: 1.65;
+  margin-top: 0.6rem;
+}
+.ej-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  opacity: 0.75;
+}
+.ej-debil  { background: #fff0f0; border-left: 3px solid #fca5a5; color: #7f1d1d; }
+.ej-fuerte { background: #f0fdf6; border-left: 3px solid #86efac; color: #14532d; }
+
+/* ═══════════════════════════════════════════
+   CHECKLIST
+═══════════════════════════════════════════ */
+.checklist-wrap {
+  display: none;
+}
+.checklist-wrap.visible { display: block; }
+
+.checklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.checklist-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.clinica .checklist-title { color: var(--c-clinica); }
+.psico .checklist-title   { color: var(--c-psico); }
+.inv .checklist-title     { color: var(--c-inv); }
+
+.btn-imprimir {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  border: 1.5px solid;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 0.18s;
+}
+
+.clinica .btn-imprimir { border-color: var(--c-clinica-borde); color: var(--c-clinica); }
+.clinica .btn-imprimir:hover { background: var(--c-clinica-bg); }
+
+.psico .btn-imprimir { border-color: var(--c-psico-borde); color: var(--c-psico); }
+.psico .btn-imprimir:hover { background: var(--c-psico-bg); }
+
+.inv .btn-imprimir { border-color: var(--c-inv-borde); color: var(--c-inv); }
+.inv .btn-imprimir:hover { background: var(--c-inv-bg); }
+
+.check-grupo {
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.check-grupo-titulo {
+  padding: 0.8rem 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ede8ec;
+}
+
+.clinica .check-grupo-titulo { color: var(--c-clinica); background: var(--c-clinica-bg); }
+.psico .check-grupo-titulo   { color: var(--c-psico);   background: var(--c-psico-bg); }
+.inv .check-grupo-titulo     { color: var(--c-inv);     background: var(--c-inv-bg); }
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 1.2rem;
+  border-bottom: 1px solid #f0ecef;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.check-item:last-child { border-bottom: none; }
+.check-item:hover { background: var(--fondo); }
+
+.check-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border: 2px solid #c8bfc7;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.check-item input[type="checkbox"]:checked {
+  border-color: transparent;
+}
+.clinica .check-item input:checked { background: var(--c-clinica-borde); }
+.psico .check-item input:checked   { background: var(--c-psico-borde); }
+.inv .check-item input:checked     { background: var(--c-inv-borde); }
+
+.check-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.check-label {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--texto);
+  transition: color 0.15s;
+}
+
+.check-item.checked .check-label {
+  color: var(--gris-m);
+  text-decoration: line-through;
+  text-decoration-color: var(--gris-m);
+}
+
+/* PROGRESO */
+.progreso-wrap {
+  background: var(--blanco);
+  border: 1px solid #e4dfe3;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progreso-barra-fondo {
+  flex: 1;
+  height: 7px;
+  background: #ede8ec;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progreso-barra {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.35s ease;
+  width: 0%;
+}
+.clinica .progreso-barra { background: var(--c-clinica-borde); }
+.psico .progreso-barra   { background: var(--c-psico-borde); }
+.inv .progreso-barra     { background: var(--c-inv-borde); }
+
+.progreso-texto {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gris-o);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--verde);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 1.4rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+footer span { color: var(--lila); }
+
+/* ═══════════════════════════════════════════
+   ANIMACIONES
+═══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 700px) {
+  header { padding: 2rem 1.4rem 1.6rem; }
+  .selector-wrap { padding: 0 1.4rem 0; }
+  main { padding: 1.4rem 1rem 4rem; }
+  .tab-btn { padding: 0.8rem 1rem; font-size: 0.78rem; }
+  .acord-head { padding: 0.9rem 1rem; }
+  .acord-body.open { padding: 0.2rem 1rem 1.2rem; }
+  .check-grupo-titulo { padding: 0.7rem 1rem; }
+  .check-item { padding: 0.65rem 1rem; }
+  .progreso-wrap { padding: 0.8rem 1rem; }
+  .intro-card { flex-direction: column; gap: 0.6rem; padding: 1.2rem; }
+}
+
+@media (max-width: 400px) {
+  .tab-btn span.tab-label { display: none; }
+  .tab-btn { padding: 0.8rem 0.85rem; }
+}
+
+/* ═══════════════════════════════════════════
+   IMPRESIÓN
+═══════════════════════════════════════════ */
+.print-header, .print-footer { display: none; }
+
+@media print {
+  body { background: white; font-size: 11pt; }
+
+  /* Ocultar todo por defecto */
+  header, .selector-wrap, footer, .acord, .intro-card,
+  #empty-state, .btn-imprimir, .progreso-wrap,
+  .checklist-wrap { display: none !important; }
+
+  /* Mostrar solo la checklist del tipo activo según clase en body */
+  body.print-clinica #cl-checklist,
+  body.print-psico   #ps-checklist,
+  body.print-inv     #in-checklist {
+    display: block !important;
+  }
+
+  .print-header {
+    display: block !important;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid #273C2C;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+
+  .checklist-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #273C2C;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .check-grupo {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    break-inside: avoid;
+    margin-bottom: 0.8rem;
+  }
+
+  .check-grupo-titulo {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    font-size: 9pt;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .check-item {
+    padding: 0.4rem 0.8rem;
+    border-bottom: 1px solid #eee;
+    page-break-inside: avoid;
+    cursor: default;
+  }
+
+  .check-item input[type="checkbox"] {
+    border: 1.5px solid #333 !important;
+    background: white !important;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px; height: 13px;
+  }
+  .check-item input[type="checkbox"]:checked { background: white !important; }
+  .check-item input[type="checkbox"]:checked::after { display: none; }
+
+  .check-label {
+    color: #000 !important;
+    text-decoration: none !important;
+    font-size: 10pt;
+  }
+
+  .print-footer {
+    display: block !important;
+    margin-top: 1.5rem;
+    font-size: 8pt;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding-top: 0.5rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-eyebrow">Ética Psicológica · Recurso de apoyo para prácticas</div>
+  <h1>Guía para construir<br><em>consentimientos informados</em></h1>
+  <p class="header-sub">Selecciona el tipo de actividad para ver criterios, marco normativo, errores frecuentes, ejemplos de redacción y lista de verificación.</p>
+</header>
+
+<!-- SELECTOR -->
+<div class="selector-wrap">
+  <div class="selector-tabs">
+    <button class="tab-btn" id="tab-clinica" onclick="setTipo('clinica')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Intervención clínica</span>
+    </button>
+    <button class="tab-btn" id="tab-psico" onclick="setTipo('psico')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Programa psicosocial</span>
+    </button>
+    <button class="tab-btn" id="tab-inv" onclick="setTipo('inv')">
+      <span class="tab-dot"></span>
+      <span class="tab-label">Investigación</span>
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- VACÍO -->
+  <div id="empty-state">
+    <div class="empty-icon">⟵</div>
+    <h3>Selecciona un tipo de actividad</h3>
+    <p>El contenido se organizará según el contexto en que usarás el consentimiento informado.</p>
+  </div>
+
+  <!-- ══════════ CLÍNICA ══════════ -->
+  <div class="intro-card clinica" id="intro-clinica">
+    <div class="intro-emoji">🩺</div>
+    <div>
+      <h2>Intervención clínica individual</h2>
+      <p>Regula la relación terapéutica continua. Es el más detallado: debe incluir el protocolo completo de excepción de confidencialidad y los aspectos operativos del vínculo terapéutico.</p>
+    </div>
+  </div>
+
+  <!-- Componentes -->
+  <div class="acord clinica" id="ac-cl-comp">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title">
+        <div class="acord-ico">📋</div> Componentes obligatorios
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="bloque"><div class="bloque-label">Identificación del profesional</div><div class="bloque-texto">Nombre completo, número de tarjeta profesional, datos de contacto. En formación práctica: incluir datos del supervisor y de la institución.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Propósito y actividades</div><div class="bloque-texto">Descripción del proceso de evaluación e intervención: enfoques terapéuticos en lenguaje accesible, modalidad (presencial/telepsicología), frecuencia y duración estimada.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Beneficios y riesgos</div><div class="bloque-texto">Beneficios reales y esperables sin prometer resultados. Riesgos: mencionar la posibilidad de malestar emocional y describir su manejo.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Confidencialidad y excepciones</div><div class="bloque-texto">Qué se registra, quién tiene acceso, protocolo paso a paso para la excepción (riesgo para sí mismo u otros). No basta enunciarla: debe describirse el procedimiento completo.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Derechos y deberes</div><div class="bloque-texto">Derecho al retiro sin consecuencias, a conocer la historia clínica, a hacer preguntas, a ser informado del curso del proceso. Deberes: asistencia, honorarios, participación activa.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Asuntos operativos</div><div class="bloque-texto">Canales de comunicación, protocolos para emergencias, recursos de crisis. Si incluye telepsicología: plataformas autorizadas, protocolos ante falla técnica, privacidad del entorno.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Firma</div><div class="bloque-texto">Paciente: nombre completo, documento, fecha. Profesional: nombre, tarjeta profesional. Contacto de emergencia del paciente.</div></div>
+    </div>
+  </div>
+
+  <!-- Normas -->
+  <div class="acord clinica" id="ac-cl-norm">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚖️</div> Marco normativo colombiano</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="norma"><span class="ntag">Ley 1090/2006</span><div class="norma-info"><strong>Código Deontológico del Psicólogo</strong><span>Art. 2°, num. 5°: deber de confidencialidad y sus excepciones. Referencia central para toda intervención clínica.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1581/2012</span><div class="norma-info"><strong>Protección de Datos Personales</strong><span>Aplica al registro y custodia de historia clínica. Indica cómo se almacenan los datos y quién tiene acceso.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1996/2019</span><div class="norma-info"><strong>Capacidad legal con discapacidad</strong><span>Enfoque de apoyo a la autonomía (no representación). Aplica cuando el paciente requiere apoyos para decidir.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1098/2006</span><div class="norma-info"><strong>Código de Infancia y Adolescencia</strong><span>En menores: consentimiento del representante legal + asentimiento del menor. Ambos son necesarios; ninguno reemplaza al otro.</span></div></div>
+    </div>
+  </div>
+
+  <!-- Errores -->
+  <div class="acord clinica" id="ac-cl-err">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚠️</div> Errores frecuentes</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="error-item"><div class="enum">1</div><div class="error-texto"><strong>Enunciar la confidencialidad sin describir el procedimiento de excepción</strong><span>"Salvo en situaciones de riesgo" es insuficiente. El paciente tiene derecho a saber exactamente cómo procederá el profesional.</span></div></div>
+      <div class="error-item"><div class="enum">2</div><div class="error-texto"><strong>No distinguir el rol clínico del rol pericial</strong><span>En contextos de violencia o procesos judiciales, el documento debe aclarar explícitamente el alcance del rol.</span></div></div>
+      <div class="error-item"><div class="enum">3</div><div class="error-texto"><strong>Usar tecnicismos sin traducción</strong><span>"Terapias contextuales" o "activación conductual" deben explicarse en términos de qué hará la persona en las sesiones.</span></div></div>
+      <div class="error-item"><div class="enum">4</div><div class="error-texto"><strong>No incluir datos del supervisor en formación práctica</strong><span>El paciente debe poder acceder a la cadena de responsabilidad. El practicante no es el único responsable del proceso.</span></div></div>
+    </div>
+  </div>
+
+  <!-- Ejemplo -->
+  <div class="acord clinica" id="ac-cl-ej">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">✏️</div> Ejemplo: excepción de confidencialidad</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="ej-box ej-debil"><div class="ej-label">❌ Redacción débil</div>"La información es confidencial, salvo en situaciones de riesgo para usted o para otros."</div>
+      <div class="ej-box ej-fuerte" style="margin-top:.8rem"><div class="ej-label">✓ Redacción recomendada</div>"La información que compartas es confidencial. Sin embargo, si considero que existe un riesgo sustancial para tu vida o la de otras personas, estoy obligada legalmente a tomar medidas de protección. En ese caso: te lo haré saber previamente; evaluaremos juntos la situación; te explicaré por qué es necesario contactar a alguien; solo revelaré la información estrictamente necesaria. Esta excepción está amparada en el artículo 2°, numeral 5° de la Ley 1090 de 2006."</div>
+    </div>
+  </div>
+
+  <!-- Checklist clínica -->
+  <div class="checklist-wrap clinica" id="cl-checklist">
+    <div class="print-header">
+      <strong>Lista de verificación — Intervención clínica individual</strong><br>
+      Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026
+    </div>
+    <div class="checklist-header">
+      <div class="checklist-title">Lista de verificación</div>
+    </div>
+    <div class="progreso-wrap">
+      <div class="progreso-barra-fondo"><div class="progreso-barra" id="prog-clinica"></div></div>
+      <div class="progreso-texto" id="prog-texto-clinica">0 / 0</div>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Información general</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Identifica al profesional: nombre, tarjeta profesional, datos de contacto</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">En formación práctica: incluye datos del supervisor e institución</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">El propósito del proceso está explicado en lenguaje comprensible para el paciente</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Describe las actividades, modalidad, frecuencia y duración estimada</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Beneficios y riesgos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Describe beneficios de forma realista (sin prometer resultados)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Menciona la posibilidad de malestar emocional y cómo se manejará</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Incluye recursos de apoyo en crisis disponibles fuera de sesión</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Confidencialidad</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Explica qué información se registra y quién tiene acceso</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Describe el procedimiento paso a paso de la excepción de confidencialidad</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Cita la norma correspondiente (Ley 1090/2006, art. 2°, num. 5°)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Si incluye telepsicología: especifica plataformas, protocolos de falla y privacidad del entorno</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Autonomía y voluntariedad</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Indica que la participación es voluntaria y el retiro no tiene consecuencias</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Explica cómo se ejerce el derecho al retiro y qué ocurre con los datos</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">No hay lenguaje que induzca, presione o genere sentido de obligación</span></label>
+    </div>
+    <div class="check-grupo clinica">
+      <div class="check-grupo-titulo">Aspectos formales</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">El documento está completo (sin instrucciones al redactor visibles)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Incluye firma del paciente con nombre, documento e identidad y fecha</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Incluye firma del profesional con número de tarjeta profesional</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('clinica')"><span class="check-label">Si el paciente es menor: consentimiento del representante + asentimiento del menor</span></label>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn-imprimir" onclick="imprimir('clinica')">🖨 Imprimir checklist</button>
+    </div>
+    <div class="print-footer">Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026 · Ética Psicológica</div>
+  </div>
+
+
+  <!-- ══════════ PSICOSOCIAL ══════════ -->
+  <div class="intro-card psico" id="intro-psico">
+    <div class="intro-emoji">👥</div>
+    <div>
+      <h2>Programa psicosocial grupal</h2>
+      <p>Informa sobre una intervención con sesiones definidas, dirigida a grupos. Equilibra claridad para participantes no especializados con el rigor ético exigido por la normativa colombiana.</p>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-comp">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">📋</div> Componentes obligatorios</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="bloque"><div class="bloque-label">Descripción del programa</div><div class="bloque-texto">Nombre, objetivo, número de sesiones, duración, modalidad, estructura temática. Lenguaje accesible al perfil del participante.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Beneficios individuales y colectivos</div><div class="bloque-texto">Diferenciar beneficios para el participante y para su comunidad. Deben ser realistas. Si no hay retribución económica, indicarlo explícitamente.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Riesgos y recursos de apoyo</div><div class="bloque-texto">Clasificar según Resolución 8430/1993. Describir concretamente. Incluir listado de líneas de atención en salud mental al final del documento.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Manejo de la información</div><div class="bloque-texto">Qué datos se recopilan, para qué, quién tiene acceso, cómo se custodian. Mencionar excepción de confidencialidad ante riesgo para sí mismo u otros.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Voluntariedad y retiro</div><div class="bloque-texto">Participación voluntaria, retiro sin consecuencias negativas. Si aplica: posibilidad de conocer resultados del programa al finalizar.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Firma y verificación de comprensión</div><div class="bloque-texto">Firma del participante con datos de identificación y fecha. Firma de testigo si el contexto lo requiere. Verificación explícita de comprensión (lista SÍ/NO recomendada).</div></div>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-norm">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚖️</div> Marco normativo colombiano</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="norma"><span class="ntag">Ley 1090/2006</span><div class="norma-info"><strong>Código Deontológico del Psicólogo</strong><span>Principios de beneficencia, no maleficencia y respeto por la autonomía. Excepciones de confidencialidad.</span></div></div>
+      <div class="norma"><span class="ntag">Res. 8430/1993</span><div class="norma-info"><strong>Investigación en salud con seres humanos</strong><span>Define categorías de riesgo. Referente técnico para clasificar riesgos en intervenciones psicosociales.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1098/2006</span><div class="norma-info"><strong>Código de Infancia y Adolescencia</strong><span>Si el programa incluye menores: consentimiento del representante + asentimiento del menor.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-err">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚠️</div> Errores frecuentes</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="error-item"><div class="enum">1</div><div class="error-texto"><strong>Entregar una plantilla sin completar</strong><span>Instrucciones al redactor visibles en el documento final comprometen la comprensibilidad y la validez ética del consentimiento.</span></div></div>
+      <div class="error-item"><div class="enum">2</div><div class="error-texto"><strong>Minimizar los riesgos sin fundamento normativo</strong><span>"No se esperan riesgos significativos" sin clasificación según Res. 8430 es insuficiente, especialmente en programas que abordan experiencias difíciles.</span></div></div>
+      <div class="error-item"><div class="enum">3</div><div class="error-texto"><strong>No incluir recursos de apoyo en salud mental</strong><span>En programas grupales sobre temáticas sensibles, el listado de líneas de atención es un componente ético, no un anexo opcional.</span></div></div>
+      <div class="error-item"><div class="enum">4</div><div class="error-texto"><strong>No diferenciar beneficios individuales y colectivos</strong><span>En programas grupales el participante puede beneficiarse a sí mismo y a su comunidad. Explicitarlo fortalece la honestidad del documento.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord psico" id="ac-ps-ej">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">✏️</div> Ejemplo: descripción de riesgos</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="ej-box ej-debil"><div class="ej-label">❌ Redacción débil</div>"No se esperan riesgos significativos derivados de su participación."</div>
+      <div class="ej-box ej-fuerte" style="margin-top:.8rem"><div class="ej-label">✓ Redacción recomendada</div>"De acuerdo con la Resolución 8430 de 1993, esta intervención se clasifica como de riesgo mínimo. Es posible que algunas sesiones generen malestar emocional al abordar experiencias personales. Si esto ocurre, contará con el acompañamiento del equipo facilitador. Si necesita apoyo adicional fuera de las sesiones, puede comunicarse con [nombre del supervisor / línea de atención]. Al final de este documento encontrará un listado de recursos de salud mental disponibles."</div>
+    </div>
+  </div>
+
+  <!-- Checklist psicosocial -->
+  <div class="checklist-wrap psico" id="ps-checklist">
+    <div class="print-header">
+      <strong>Lista de verificación — Programa psicosocial grupal</strong><br>
+      Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026
+    </div>
+    <div class="checklist-header">
+      <div class="checklist-title">Lista de verificación</div>
+    </div>
+    <div class="progreso-wrap">
+      <div class="progreso-barra-fondo"><div class="progreso-barra" id="prog-psico"></div></div>
+      <div class="progreso-texto" id="prog-texto-psico">0 / 0</div>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Descripción del programa</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Nombre del programa y objetivo en lenguaje comprensible para los participantes</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Número de sesiones, duración de cada una y modalidad (presencial/virtual)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Estructura temática o descripción de módulos</span></label>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Beneficios y riesgos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Diferencia beneficios individuales y colectivos</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Clasifica los riesgos según Resolución 8430/1993</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Describe los riesgos con precisión (no de forma genérica)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Incluye listado de líneas de atención en salud mental</span></label>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Confidencialidad y datos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Especifica qué datos se recopilan, para qué y quién tiene acceso</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Menciona la excepción de confidencialidad ante riesgo</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Indica cómo se custodian los datos</span></label>
+    </div>
+    <div class="check-grupo psico">
+      <div class="check-grupo-titulo">Autonomía y aspectos formales</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Indica que la participación es voluntaria y el retiro no tiene consecuencias</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">El documento está completo (sin instrucciones al redactor visibles)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Incluye firma del participante con datos de identificación y fecha</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Si incluye menores: consentimiento del representante + asentimiento del menor</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('psico')"><span class="check-label">Cita al menos una norma pertinente (Ley 1090/2006 o Res. 8430/1993)</span></label>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn-imprimir" onclick="imprimir('psico')">🖨 Imprimir checklist</button>
+    </div>
+    <div class="print-footer">Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026 · Ética Psicológica</div>
+  </div>
+
+
+  <!-- ══════════ INVESTIGACIÓN ══════════ -->
+  <div class="intro-card inv" id="intro-inv">
+    <div class="intro-emoji">🔬</div>
+    <div>
+      <h2>Investigación</h2>
+      <p>Garantiza la participación informada y voluntaria en la generación de conocimiento. Requiere aval de comité de ética institucional. Énfasis en anonimización, custodia de datos y acceso a resultados.</p>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-comp">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">📋</div> Componentes obligatorios</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="bloque"><div class="bloque-label">Propósito del estudio</div><div class="bloque-texto">Objetivo en lenguaje comprensible. Sin jerga metodológica. Mencionar el aval institucional y los datos de contacto del comité de ética.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Descripción de actividades</div><div class="bloque-texto">Qué hará exactamente el participante (cuestionarios, entrevistas, grupos focales), tiempo requerido, número de momentos de recolección.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Beneficios</div><div class="bloque-texto">Generalmente indirectos (contribución al conocimiento). Si hay retroalimentación de resultados, indicarlo. No prometer beneficios terapéuticos si el estudio no los contempla.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Riesgos y clasificación normativa</div><div class="bloque-texto">Clasificar explícitamente según Resolución 8430/1993. No usar expresiones genéricas. Incluir recursos de apoyo si la temática es sensible.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Manejo de datos</div><div class="bloque-texto">Qué datos se recopilan, cómo se anonimiza (códigos, seudónimos), dónde se custodian, por cuánto tiempo, quién tiene acceso. Citar Ley 1581/2012.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Voluntariedad, retiro y acceso a resultados</div><div class="bloque-texto">Retiro en cualquier momento sin consecuencias. Qué pasa con los datos al retirarse. Derecho a conocer los resultados finales del estudio.</div></div>
+      <div class="divider"></div>
+      <div class="bloque"><div class="bloque-label">Contactos institucionales</div><div class="bloque-texto">Investigador principal (nombre, correo, teléfono) y comité de ética de la facultad o institución (correo, datos de contacto). Ambos son obligatorios.</div></div>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-norm">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚖️</div> Marco normativo colombiano</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span class="badge b-oblig">Obligatorio</span>
+        <span class="chevron-icon">▾</span>
+      </div>
+    </div>
+    <div class="acord-body">
+      <div class="norma"><span class="ntag">Res. 8430/1993</span><div class="norma-info"><strong>Normas para investigación en salud</strong><span>Define categorías de riesgo y requisitos del consentimiento. Es la norma principal para toda investigación psicológica con participantes humanos.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1581/2012</span><div class="norma-info"><strong>Protección de Datos Personales</strong><span>Obligatoria cuando se recopilan y procesan datos personales. Especificar cómo se custodian y durante cuánto tiempo.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1090/2006</span><div class="norma-info"><strong>Código Deontológico del Psicólogo</strong><span>Aplica cuando la investigación involucra intervención directa o recolección de información clínica.</span></div></div>
+      <div class="norma"><span class="ntag">Ley 1098/2006</span><div class="norma-info"><strong>Código de Infancia y Adolescencia</strong><span>Si la muestra incluye menores: consentimiento del representante + asentimiento del menor. Los dos son obligatorios.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-err">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">⚠️</div> Errores frecuentes</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="error-item"><div class="enum">1</div><div class="error-texto"><strong>No incluir datos de contacto del comité de ética</strong><span>El participante necesita una instancia de supervisión externa al equipo investigador. Su ausencia puede invalidar el aval institucional.</span></div></div>
+      <div class="error-item"><div class="enum">2</div><div class="error-texto"><strong>Confundir investigación con intervención</strong><span>Si el estudio tiene simultáneamente propósito investigativo y terapéutico, se necesitan dos consentimientos o uno que diferencie explícitamente ambos propósitos.</span></div></div>
+      <div class="error-item"><div class="enum">3</div><div class="error-texto"><strong>Prometer beneficios terapéuticos sin justificación</strong><span>En investigación los beneficios son generalmente indirectos. Prometer mejoras individuales no garantizadas vulnera el principio de honestidad.</span></div></div>
+      <div class="error-item"><div class="enum">4</div><div class="error-texto"><strong>No especificar qué ocurre con los datos al retirarse</strong><span>El participante tiene derecho a saber si sus datos serán eliminados o si, bajo anonimización, podrán seguir siendo usados.</span></div></div>
+    </div>
+  </div>
+
+  <div class="acord inv" id="ac-in-ej">
+    <div class="acord-head" onclick="toggle(this)">
+      <div class="acord-title"><div class="acord-ico">✏️</div> Ejemplo: voluntariedad y retiro</div>
+      <div style="display:flex;gap:.5rem;align-items:center"><span class="chevron-icon">▾</span></div>
+    </div>
+    <div class="acord-body">
+      <div class="ej-box ej-debil"><div class="ej-label">❌ Redacción débil</div>"La participación es voluntaria y puede retirarse en cualquier momento."</div>
+      <div class="ej-box ej-fuerte" style="margin-top:.8rem"><div class="ej-label">✓ Redacción recomendada</div>"Su participación es completamente voluntaria. Puede retirarse en cualquier momento sin necesidad de dar explicaciones y sin consecuencia alguna. Si decide retirarse, sus datos serán eliminados a solicitud suya, salvo que autorice expresamente su uso en forma anonimizada. Si completa su participación, tiene derecho a conocer los resultados generales del estudio una vez finalizado, solicitándolos al investigador principal en la dirección indicada al final de este documento."</div>
+    </div>
+  </div>
+
+  <!-- Checklist investigación -->
+  <div class="checklist-wrap inv" id="in-checklist">
+    <div class="print-header">
+      <strong>Lista de verificación — Investigación</strong><br>
+      Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026
+    </div>
+    <div class="checklist-header">
+      <div class="checklist-title">Lista de verificación</div>
+    </div>
+    <div class="progreso-wrap">
+      <div class="progreso-barra-fondo"><div class="progreso-barra" id="prog-inv"></div></div>
+      <div class="progreso-texto" id="prog-texto-inv">0 / 0</div>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Información general</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">El propósito del estudio está explicado en lenguaje comprensible (sin jerga metodológica)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Describe exactamente qué hará el participante, cuánto tiempo tomará y en cuántos momentos</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Menciona el aval institucional del comité de ética</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Incluye datos de contacto del investigador principal y del comité de ética</span></label>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Beneficios y riesgos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Los beneficios descritos son realistas (generalmente indirectos en investigación)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">No se prometen beneficios terapéuticos que el estudio no garantiza</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Los riesgos están clasificados según Resolución 8430/1993 y descritos con precisión</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Si la temática es sensible: incluye recursos de apoyo en salud mental</span></label>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Manejo de datos</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Especifica qué datos se recopilan y para qué</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Describe el mecanismo de anonimización (códigos, seudónimos)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Indica dónde se custodian los datos, quién tiene acceso y por cuánto tiempo</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Cita la Ley 1581/2012</span></label>
+    </div>
+    <div class="check-grupo inv">
+      <div class="check-grupo-titulo">Autonomía y aspectos formales</div>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Indica que la participación es voluntaria y el retiro no tiene consecuencias</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Explica qué ocurre con los datos si el participante se retira</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">El participante tiene derecho a conocer los resultados finales del estudio</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">El documento está completo (sin instrucciones al redactor visibles)</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Incluye firma del participante con nombre, documento e identidad y fecha</span></label>
+      <label class="check-item"><input type="checkbox" onchange="actualizarProgreso('inv')"><span class="check-label">Si la muestra incluye menores: consentimiento del representante + asentimiento del menor</span></label>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn-imprimir" onclick="imprimir('inv')">🖨 Imprimir checklist</button>
+    </div>
+    <div class="print-footer">Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026 · Ética Psicológica</div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span>Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026</span><br>
+  Ética Psicológica · Recurso de apoyo para estudiantes en prácticas
+</footer>
+
+<script>
+let tipoActual = null;
+
+function setTipo(tipo) {
+  // Reset
+  document.getElementById('empty-state').style.display = 'none';
+  document.querySelectorAll('.intro-card, .acord, .checklist-wrap').forEach(el => {
+    el.classList.remove('visible');
+  });
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.className = 'tab-btn';
+  });
+
+  tipoActual = tipo;
+
+  // Mapeo de tipo a clase CSS del tab
+  const tabMap = { clinica: 'active-clinica', psico: 'active-psico', inv: 'active-inv' };
+  document.getElementById('tab-' + tipo).classList.add(tabMap[tipo]);
+
+  // Mostrar intro
+  document.getElementById('intro-' + tipo).classList.add('visible');
+
+  // Mostrar acordeones
+  document.querySelectorAll('.acord.' + tipo).forEach(el => el.classList.add('visible'));
+
+  // Mostrar checklist
+  const clMap = { clinica: 'cl-checklist', psico: 'ps-checklist', inv: 'in-checklist' };
+  document.getElementById(clMap[tipo]).classList.add('visible');
+
+  // Abrir primer acordeón automáticamente
+  const primero = document.querySelector('.acord.' + tipo + ' .acord-body');
+  const chevronPrimero = document.querySelector('.acord.' + tipo + ' .chevron-icon');
+  if (primero) { primero.classList.add('open'); chevronPrimero.classList.add('open'); }
+
+  // Inicializar progreso
+  actualizarProgreso(tipo);
+
+  // Scroll suave al inicio del contenido
+  document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron-icon');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+function actualizarProgreso(tipo) {
+  const mapId = { clinica: 'cl-checklist', psico: 'ps-checklist', inv: 'in-checklist' };
+  const wrap = document.getElementById(mapId[tipo]);
+  const todos = wrap.querySelectorAll('input[type="checkbox"]');
+  const marcados = wrap.querySelectorAll('input[type="checkbox"]:checked');
+
+  const total = todos.length;
+  const hecho = marcados.length;
+  const pct = total > 0 ? Math.round((hecho / total) * 100) : 0;
+
+  document.getElementById('prog-' + tipo).style.width = pct + '%';
+  document.getElementById('prog-texto-' + tipo).textContent = hecho + ' / ' + total;
+
+  // Actualizar clase visual de cada item
+  todos.forEach(cb => {
+    const item = cb.closest('.check-item');
+    if (cb.checked) item.classList.add('checked');
+    else item.classList.remove('checked');
+  });
+}
+
+function imprimir(tipo) {
+  // Limpiar clases previas de impresión
+  document.body.classList.remove('print-clinica', 'print-psico', 'print-inv');
+  // Añadir clase del tipo activo
+  document.body.classList.add('print-' + tipo);
+  window.print();
+  // Limpiar después de imprimir
+  setTimeout(() => {
+    document.body.classList.remove('print-clinica', 'print-psico', 'print-inv');
+  }, 1000);
+}
+</script>
+</body>
+</html>
