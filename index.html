@@ -2076,9 +2076,7 @@ let tipoActual = null;
 
 function setTipo(tipo) {
   // Limpiar ancla de URL sin recargar la página
-  history.replaceState(null, '', window.location.pathname);
-  // Reset general
-  document.getElementById('empty-state').style.display = 'none';
+  history.replaceState(null, '', '#' + tipo);
   // Reset
   document.getElementById('empty-state').style.display = 'none';
   document.querySelectorAll('.intro-card, .acord, .checklist-wrap').forEach(el => el.classList.remove('visible'));
@@ -2173,7 +2171,12 @@ function initMtnScroll() {
   }, { rootMargin: '-20% 0px -60% 0px' });
 
   sections.forEach(s => observer.observe(s));
-}
+   }
+      window.addEventListener('DOMContentLoaded', () => {
+     const hash = window.location.hash.replace('#', '');
+     const validos = ['clinica', 'psico', 'inv', 'mtn'];
+     setTipo(validos.includes(hash) ? hash : 'clinica');
+   });
 </script>
 </body>
 </html>
