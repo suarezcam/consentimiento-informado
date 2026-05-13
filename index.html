@@ -2075,6 +2075,10 @@ footer span { color: var(--lila); }
 let tipoActual = null;
 
 function setTipo(tipo) {
+  // Limpiar ancla de URL sin recargar la página
+  history.replaceState(null, '', window.location.pathname);
+  // Reset general
+  document.getElementById('empty-state').style.display = 'none';
   // Reset
   document.getElementById('empty-state').style.display = 'none';
   document.querySelectorAll('.intro-card, .acord, .checklist-wrap').forEach(el => el.classList.remove('visible'));
