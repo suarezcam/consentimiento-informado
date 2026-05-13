@@ -2068,7 +2068,7 @@ footer span { color: var(--lila); }
 <!-- FOOTER -->
 <footer>
   <span>Recurso pedagógico elaborado por Camila Suárez-Acevedo © 2026</span><br>
-  Ética Psicológica · Recurso de apoyo para estudiantes en prácticas
+  Ética en psicología · Recurso de apoyo para estudiantes en prácticas
 </footer>
 
 <script>
@@ -2175,7 +2175,7 @@ function initMtnScroll() {
       window.addEventListener('DOMContentLoaded', () => {
      const hash = window.location.hash.replace('#', '');
      const validos = ['clinica', 'psico', 'inv', 'mtn'];
-     setTipo(validos.includes(hash) ? hash : 'clinica');
+     if (validos.includes(hash)) setTipo(hash);
    });
 </script>
 </body>
